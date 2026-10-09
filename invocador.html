@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Álvaro Luque · Modo invocador</title>
+<meta name="description" content="El CV de Álvaro Luque Torres en modo invocador: pixel art con temática de League of Legends.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%23010a13'/%3E%3Cpath fill='%23c8aa6e' d='M5 2h6v1h1v1h1v2H3V4h1V3h1zM3 7h10v1h-1v1h-1v1h-1v1H9v1H7v-1H6v-1H5V9H4V8H3z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Hextech palette in pixels. The page has a single (dark) theme on purpose: it imitates the game client. */
+:root {
+  --void: #010a13;
+  --navy: #0a1428;
+  --panel: #0e1a2b;
+  --panel-2: #13233a;
+  --gold: #c8aa6e;
+  --gold-hi: #f0e6d2;
+  --gold-lo: #785a28;
+  --teal: #0ac8b9;
+  --blue: #0397ab;
+  --win: #3a8fd9;
+  --text: #f0e6d2;
+  --muted: #a09b8c;
+  --px: 4px;
+  --head: "Silkscreen", "Pixelify Sans", ui-monospace, monospace;
+  color-scheme: dark;
+}
+html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  color: var(--text);
+  font: 19px/1.45 "Pixelify Sans", ui-monospace, monospace;
+  background-color: var(--void);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(200, 170, 110, .55) 1px, transparent 1.5px),
+    radial-gradient(circle at 70% 80%, rgba(10, 200, 185, .45) 1px, transparent 1.5px),
+    radial-gradient(circle at 45% 60%, rgba(240, 230, 210, .35) 1px, transparent 1.5px),
+    linear-gradient(180deg, var(--navy), var(--void) 60%);
+  background-size: 180px 180px, 240px 240px, 130px 130px, 100% 100%;
+  background-attachment: fixed;
+}
+/* Faint CRT scanlines. */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 1px, transparent 1px 3px);
+  opacity: .35;
+}
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 720px) { .wrap { padding: 0 32px; } }
+.sprite svg { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+
+/* Pixel frame: the 4 outer shadows leave the corners empty, which gives the stepped pixel corner. */
+.frame {
+  position: relative; background: var(--panel);
+  box-shadow:
+    calc(var(--px) * -1) 0 0 0 var(--gold-lo), var(--px) 0 0 0 var(--gold-lo),
+    0 calc(var(--px) * -1) 0 0 var(--gold-lo), 0 var(--px) 0 0 var(--gold-lo),
+    inset var(--px) var(--px) 0 0 rgba(240, 230, 210, .05), inset calc(var(--px) * -1) calc(var(--px) * -1) 0 0 rgba(0, 0, 0, .35);
+  margin: var(--px);
+}
+.frame.gold {
+  box-shadow:
+    calc(var(--px) * -1) 0 0 0 var(--gold), var(--px) 0 0 0 var(--gold),
+    0 calc(var(--px) * -1) 0 0 var(--gold), 0 var(--px) 0 0 var(--gold),
+    inset var(--px) var(--px) 0 0 rgba(240, 230, 210, .07), inset calc(var(--px) * -1) calc(var(--px) * -1) 0 0 rgba(0, 0, 0, .35);
+}
+
+/* Header */
+header { position: sticky; top: 0; z-index: 20; background: rgba(1, 10, 19, .92); border-bottom: var(--px) solid var(--gold-lo); }
+.bar { display: flex; align-items: center; gap: 14px; height: 64px; }
+.logo { font: 700 17px/1 var(--head); color: var(--gold); text-decoration: none; letter-spacing: 1px; white-space: nowrap; }
+.logo b { color: var(--teal); font-weight: 400; }
+nav { display: flex; gap: 2px; margin-left: auto; }
+nav a { font: 13px/1 var(--head); color: var(--muted); text-decoration: none; padding: 10px 9px; letter-spacing: .5px; }
+nav a:hover { color: var(--gold-hi); background: var(--panel-2); }
+@media (max-width: 900px) { nav { display: none; } .tools { margin-left: auto; } }
+.tools { display: flex; gap: 10px; }
+.pbtn {
+  font: 13px/1 var(--head); color: var(--gold-hi); background: var(--panel-2); cursor: pointer;
+  border: 0; padding: 10px 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: -3px 0 0 0 var(--gold-lo), 3px 0 0 0 var(--gold-lo), 0 -3px 0 0 var(--gold-lo), 0 3px 0 0 var(--gold-lo);
+  margin: 3px;
+}
+.pbtn:hover { background: var(--gold-lo); }
+.pbtn .on { color: var(--teal); }
+
+/* Generic section heading */
+section { padding: 44px 0; }
+.title { display: flex; align-items: center; gap: 14px; margin: 0 0 26px; }
+.title h2 { font: 700 22px/1.4 var(--head); color: var(--gold); margin: 0; letter-spacing: 1px; }
+.title::after { content: ""; flex: 1; height: var(--px); background: repeating-linear-gradient(90deg, var(--gold-lo) 0 8px, transparent 8px 12px); }
+.title .gem { width: 12px; height: 12px; background: var(--teal); transform: rotate(45deg); flex: none; box-shadow: 0 0 0 3px var(--void), 0 0 0 6px var(--gold-lo); }
+.label { font: 13px/1.6 var(--head); color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+
+/* Hero: summoner profile */
+.hero { padding-top: 54px; padding-bottom: 30px; }
+.profile { display: grid; gap: 28px; align-items: center; padding: 28px; }
+@media (min-width: 760px) { .profile { grid-template-columns: auto 1fr; padding: 36px; } }
+.avatar-wrap { position: relative; width: 168px; margin: 0 auto; }
+.avatar { width: 168px; height: 168px; background: radial-gradient(circle, #1d3b55, var(--navy)); padding: 16px; }
+.level {
+  position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%);
+  font: 15px/1 var(--head); color: var(--gold-hi); background: var(--void); padding: 8px 10px; white-space: nowrap;
+  box-shadow: -3px 0 0 0 var(--gold), 3px 0 0 0 var(--gold), 0 -3px 0 0 var(--gold), 0 3px 0 0 var(--gold);
+}
+.hero h1 { font: 700 clamp(24px, 6vw, 44px)/1.2 var(--head); margin: 0 0 6px; color: var(--gold-hi); text-shadow: 3px 3px 0 var(--gold-lo); }
+.tagline { color: var(--teal); font-size: 20px; margin: 0 0 14px; }
+.hero p { margin: 0 0 18px; max-width: 640px; color: var(--text); }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 22px; }
+.stats div { display: flex; flex-direction: column; gap: 4px; }
+.stats b { font-weight: 500; color: var(--gold-hi); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.play {
+  font: 15px/1 var(--head); text-decoration: none; padding: 14px 16px; display: inline-flex; gap: 10px; align-items: center;
+  color: var(--void); background: var(--teal); border: 0; cursor: pointer;
+  box-shadow: -4px 0 0 0 var(--void), 4px 0 0 0 var(--void), 0 -4px 0 0 var(--void), 0 4px 0 0 var(--void), 0 8px 0 0 #067a72;
+  margin: 4px 4px 10px;
+  transition: transform .08s steps(2);
+}
+.play:hover { transform: translateY(-2px); }
+.play:active { transform: translateY(3px); box-shadow: -4px 0 0 0 var(--void), 4px 0 0 0 var(--void), 0 -4px 0 0 var(--void), 0 4px 0 0 var(--void); }
+.play.alt { background: var(--gold); box-shadow: -4px 0 0 0 var(--void), 4px 0 0 0 var(--void), 0 -4px 0 0 var(--void), 0 4px 0 0 var(--void), 0 8px 0 0 var(--gold-lo); }
+
+/* Match history */
+.matches { display: grid; gap: 22px; }
+.match { display: grid; grid-template-columns: 10px 1fr; overflow: hidden; }
+.match .stripe { background: var(--win); }
+.match.queue .stripe { background: repeating-linear-gradient(180deg, var(--muted) 0 8px, transparent 8px 12px); }
+.match .inner { padding: 20px 22px; }
+.match-top { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; margin-bottom: 12px; }
+.result { font: 700 17px/1 var(--head); color: var(--win); }
+.queue .result { color: var(--muted); }
+.match-body { display: grid; gap: 18px; }
+@media (min-width: 760px) { .match-body { grid-template-columns: 88px 1fr; } }
+.champ-mini { width: 88px; height: 88px; background: var(--panel-2); padding: 8px; }
+.match h3 { font: 17px/1.6 var(--head); margin: 0 0 4px; color: var(--gold-hi); }
+.match .where { color: var(--muted); margin: 0 0 10px; }
+.kda { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 12px; color: var(--gold-hi); }
+.kda span::before { content: "■ "; color: var(--teal); }
+.items { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.slot {
+  min-width: 46px; height: 46px; padding: 0 8px; display: grid; place-items: center; text-align: center;
+  font: 11px/1.3 var(--head); color: var(--gold-hi); background: linear-gradient(180deg, #1c3550, #0b1a2c);
+  box-shadow: -3px 0 0 0 var(--gold-lo), 3px 0 0 0 var(--gold-lo), 0 -3px 0 0 var(--gold-lo), 0 3px 0 0 var(--gold-lo);
+  margin: 3px;
+}
+.slot.trinket { background: linear-gradient(180deg, #3d2f12, #1b1406); }
+ul.list { margin: 0; padding: 0; list-style: none; }
+ul.list li { position: relative; padding-left: 20px; margin: 6px 0; }
+ul.list li::before { content: ""; position: absolute; left: 2px; top: .55em; width: 8px; height: 8px; background: var(--gold); }
+.timer { font: 15px/1 var(--head); color: var(--gold-hi); }
+.dots::after { content: ""; animation: dots 1.2s steps(4) infinite; }
+@keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+
+/* Ranked (education) */
+.ranks { display: grid; gap: 22px; }
+@media (min-width: 760px) { .ranks { grid-template-columns: 1fr 1fr; } }
+.rank { display: grid; grid-template-columns: 112px 1fr; gap: 20px; align-items: center; padding: 22px; }
+.emblem { width: 112px; height: 112px; }
+.tier { font: 700 21px/1.4 var(--head); margin: 0 0 6px; }
+.tier.master { color: #c084fc; text-shadow: 3px 3px 0 #4c1d95; }
+.tier.diamond { color: #7dd3fc; text-shadow: 3px 3px 0 #1e3a8a; }
+.rank p { margin: 0 0 8px; color: var(--muted); }
+.rank p b { color: var(--text); font-weight: 500; }
+.pips { display: flex; gap: 8px; align-items: center; }
+.pip { width: 14px; height: 14px; background: var(--panel-2); box-shadow: 0 0 0 3px var(--gold-lo); }
+.pip.done { background: var(--teal); }
+.toasts { display: grid; gap: 18px; margin-top: 26px; }
+@media (min-width: 760px) { .toasts { grid-template-columns: 1fr 1fr; } }
+.toast { display: flex; gap: 16px; align-items: center; padding: 16px 18px; }
+.toast .ico { width: 48px; height: 48px; flex: none; }
+.toast p { margin: 4px 0 0; }
+
+/* Runes (skills) */
+.runes { display: grid; gap: 22px; }
+@media (min-width: 900px) { .runes { grid-template-columns: repeat(3, 1fr); } }
+.path { padding: 22px; }
+.path-head { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+.path-head .ico { width: 48px; height: 48px; flex: none; }
+.path-head h3 { font: 15px/1.6 var(--head); margin: 0; }
+.keystone {
+  display: flex; align-items: center; gap: 14px; margin: 0 0 16px; padding: 12px; background: var(--panel-2);
+}
+.keystone .orb {
+  width: 54px; height: 54px; flex: none; display: grid; place-items: center; font: 13px/1 var(--head); color: var(--void);
+  background: var(--c, var(--teal));
+  clip-path: polygon(30% 0, 70% 0, 70% 10%, 90% 10%, 90% 30%, 100% 30%, 100% 70%, 90% 70%, 90% 90%, 70% 90%, 70% 100%, 30% 100%, 30% 90%, 10% 90%, 10% 70%, 0 70%, 0 30%, 10% 30%, 10% 10%, 30% 10%);
+}
+.rune-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.rune {
+  font-size: 16px; padding: 4px 10px; background: var(--navy); color: var(--text);
+  box-shadow: -3px 0 0 0 var(--c, var(--teal)), 3px 0 0 0 var(--c, var(--teal)), 0 -3px 0 0 var(--c, var(--teal)), 0 3px 0 0 var(--c, var(--teal));
+  margin: 3px;
+}
+.rune.learning { box-shadow: -3px 0 0 0 var(--muted), 3px 0 0 0 var(--muted), 0 -3px 0 0 var(--muted), 0 3px 0 0 var(--muted); color: var(--muted); }
+.legend { color: var(--muted); font-size: 16px; margin-top: 18px; }
+
+/* Champion select (projects) */
+.select { display: grid; gap: 26px; }
+@media (min-width: 900px) { .select { grid-template-columns: 300px 1fr; } }
+.roster { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; align-content: start; }
+@media (min-width: 900px) { .roster { grid-template-columns: repeat(3, 1fr); } }
+.pick {
+  aspect-ratio: 1; padding: 10px; border: 0; cursor: pointer; background: var(--panel-2);
+  box-shadow: -4px 0 0 0 var(--gold-lo), 4px 0 0 0 var(--gold-lo), 0 -4px 0 0 var(--gold-lo), 0 4px 0 0 var(--gold-lo);
+  margin: 4px; filter: grayscale(.6) brightness(.8); transition: filter .1s;
+}
+.pick:hover { filter: none; }
+.pick[aria-pressed="true"] {
+  filter: none; background: #1d3b55;
+  box-shadow: -4px 0 0 0 var(--gold), 4px 0 0 0 var(--gold), 0 -4px 0 0 var(--gold), 0 4px 0 0 var(--gold), 0 0 22px 4px rgba(10, 200, 185, .45);
+}
+.roster-hint { grid-column: 1 / -1; color: var(--muted); font-size: 16px; margin: 4px 0 0; }
+.detail { padding: 26px; }
+.detail-head { display: flex; gap: 20px; align-items: center; margin-bottom: 16px; }
+.detail-head .big { width: 104px; height: 104px; flex: none; background: radial-gradient(circle, #1d3b55, var(--navy)); padding: 10px; }
+.detail h3 { font: 700 clamp(18px, 3.2vw, 24px)/1.3 var(--head); margin: 0 0 4px; color: var(--gold-hi); }
+.epithet { color: var(--gold); font-style: italic; margin: 0 0 8px; }
+.roles { display: flex; flex-wrap: wrap; gap: 8px; }
+.role { font: 11px/1 var(--head); padding: 6px 8px; color: var(--teal); background: rgba(10, 200, 185, .1); }
+.lore { color: var(--text); margin: 0 0 18px; }
+.abilities { display: grid; gap: 10px; margin: 0 0 18px; }
+.ability { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.key {
+  width: 40px; height: 40px; display: grid; place-items: center; font: 17px/1 var(--head); color: var(--void);
+  background: var(--gold); box-shadow: inset -4px -4px 0 0 var(--gold-lo), inset 4px 4px 0 0 var(--gold-hi);
+}
+.key.p { background: var(--teal); box-shadow: inset -4px -4px 0 0 #067a72, inset 4px 4px 0 0 #8ff5ea; }
+.key.r { background: #e84057; box-shadow: inset -4px -4px 0 0 #8c1d2c, inset 4px 4px 0 0 #ffa0ac; color: var(--gold-hi); }
+.ability b { display: block; font-weight: 700; color: var(--gold-hi); }
+.ability span.d { color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.locked { font: 13px/1 var(--head); color: var(--muted); padding: 12px 0; }
+
+/* Contact: match found */
+.found { text-align: center; padding: 40px 22px; }
+.found .big-title { font: 700 clamp(24px, 5.6vw, 40px)/1.2 var(--head); color: var(--gold-hi); margin: 0 0 8px; text-shadow: 3px 3px 0 var(--gold-lo); }
+.found p { color: var(--muted); margin: 0 auto 26px; max-width: 520px; }
+.ring { width: 120px; height: 120px; margin: 0 auto 26px; position: relative; image-rendering: pixelated; }
+.ring svg { width: 100%; height: 100%; }
+.ring .t { position: absolute; inset: 0; display: grid; place-items: center; font: 20px/1 var(--head); color: var(--gold-hi); }
+.found .actions { justify-content: center; }
+.accept { font-size: 14px; padding: 18px 30px; }
+footer { padding: 26px 0 50px; color: var(--muted); font-size: 15px; text-align: center; }
+footer p { margin: 6px auto; max-width: 760px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">ÁLVARO<b>.</b>EXE</a>
+    <nav>
+      <a href="#historial"><span lang="es">HISTORIAL</span><span lang="en">MATCH HISTORY</span></a>
+      <a href="#clasificatoria"><span lang="es">CLASIFICATORIA</span><span lang="en">RANKED</span></a>
+      <a href="#runas"><span lang="es">RUNAS</span><span lang="en">RUNES</span></a>
+      <a href="#campeones"><span lang="es">CAMPEONES</span><span lang="en">CHAMPIONS</span></a>
+      <a href="#contacto"><span lang="es">CONTACTO</span><span lang="en">CONTACT</span></a>
+    </nav>
+    <div class="tools">
+      <button class="pbtn" id="lang-btn" type="button" aria-label="Cambiar idioma / Change language">
+        <span lang="es"><span class="on">ES</span>·EN</span><span lang="en">ES·<span class="on">EN</span></span>
+      </button>
+      <a class="pbtn" href="index.html"><span lang="es">MODO PRO</span><span lang="en">PRO MODE</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Summoner profile -->
+  <div class="wrap hero">
+    <div class="frame gold profile">
+      <div class="avatar-wrap">
+        <div class="avatar sprite" data-sprite="avatar" aria-hidden="true"></div>
+        <span class="level" title="Nivel 30: listo para clasificatorias">NV. 30</span>
+      </div>
+      <div>
+        <span class="label"><span lang="es">Perfil de invocador · Málaga (EUW)</span><span lang="en">Summoner profile · Málaga (EUW)</span></span>
+        <h1>Álvaro Luque Torres</h1>
+        <p class="tagline"><span lang="es">Ingeniero informático · Main datos, secundario ciberseguridad (GRC)</span><span lang="en">Software engineer · Main data, secondary cybersecurity (GRC)</span></p>
+        <p>
+          <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en Ingeniería de Datos. Me gusta llevar los datos de principio a fin: de la ingesta a la app que los usa. Ahora además me especializo en GRC, donde voy a hacer prácticas.</span>
+          <span lang="en">Computer Engineering graduate from the University of Málaga, studying the Master's with a Data Engineering specialization. I like taking data end to end: from ingestion to the app that uses it. I'm now also specializing in GRC, where I'm about to start an internship.</span>
+        </p>
+        <div class="stats">
+          <div><span class="label"><span lang="es">Rol principal</span><span lang="en">Main role</span></span><b><span lang="es">Ingeniería de datos</span><span lang="en">Data engineering</span></b></div>
+          <div><span class="label"><span lang="es">Rol secundario</span><span lang="en">Secondary role</span></span><b>GRC</b></div>
+          <div><span class="label">Chat</span><b><span lang="es">ES nativo · EN B1</span><span lang="en">ES native · EN B1</span></b></div>
+        </div>
+        <div class="actions">
+          <a class="play" href="mailto:alvaro31032003@gmail.com">▶ <span lang="es">MENSAJE</span><span lang="en">MESSAGE</span></a>
+          <a class="play alt" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener">LINKEDIN</a>
+          <a class="play alt" href="https://github.com/xAllow" target="_blank" rel="noopener">GITHUB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Match history = experience -->
+  <section id="historial">
+    <div class="wrap">
+      <div class="title"><span class="gem"></span><h2><span lang="es">HISTORIAL</span><span lang="en">MATCH HISTORY</span></h2></div>
+      <div class="matches">
+        <article class="frame match queue">
+          <div class="stripe"></div>
+          <div class="inner">
+            <div class="match-top">
+              <span class="result dots"><span lang="es">BUSCANDO PARTIDA</span><span lang="en">FINDING MATCH</span></span>
+              <span class="label"><span lang="es">Prácticas · GRC</span><span lang="en">Internship · GRC</span></span>
+              <span class="timer" id="queue-timer" aria-label="Tiempo en cola">00:00</span>
+            </div>
+            <p class="where" style="margin:0">
+              <span lang="es">Próxima partida: prácticas en gobierno, riesgo y cumplimiento (GRC). Rol: ISO 27001, ENS y RGPD, análisis de riesgos y auditoría.</span>
+              <span lang="en">Next match: internship in governance, risk and compliance (GRC). Role: ISO 27001, ENS and GDPR, risk analysis and auditing.</span>
+            </p>
+          </div>
+        </article>
+
+        <article class="frame match">
+          <div class="stripe"></div>
+          <div class="inner">
+            <div class="match-top">
+              <span class="result"><span lang="es">VICTORIA</span><span lang="en">VICTORY</span></span>
+              <span class="label"><span lang="es">Prácticas en empresa</span><span lang="en">Internship</span></span>
+              <span class="label">03/2025 – 05/2025 · <span lang="es">3 meses</span><span lang="en">3 months</span></span>
+            </div>
+            <div class="match-body">
+              <div class="champ-mini sprite" data-sprite="avatar" aria-hidden="true"></div>
+              <div>
+                <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
+                <p class="where">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
+                <div class="kda">
+                  <span>HL7 → FHIR</span>
+                  <span><span lang="es">2 apps full stack</span><span lang="en">2 full-stack apps</span></span>
+                  <span><span lang="es">1 migración</span><span lang="en">1 migration</span></span>
+                </div>
+                <div class="items" aria-label="Tecnologías">
+                  <span class="slot">SPRING<br>BOOT</span><span class="slot">QUARKUS</span><span class="slot">ANGULAR</span>
+                  <span class="slot">MYSQL</span><span class="slot">HAPI<br>FHIR</span><span class="slot">JUNIT</span><span class="slot trinket">DOCKER</span>
+                </div>
+                <ul class="list">
+                  <li><span lang="es">Integración de HL7 y FHIR: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">HL7 and FHIR integration: parsing HL7 messages and mapping them to FHIR resources with HAPI FHIR in Spring Boot.</span></li>
+                  <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en Spring Boot y en Quarkus.</span><span lang="en">REST APIs with XML responses and basic authentication, in Spring Boot and Quarkus.</span></li>
+                  <li><span lang="es">Migración de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en">Migration of a proxy service from Open Liberty to Quarkus.</span></li>
+                  <li><span lang="es">Dos aplicaciones CRUD full stack con Quarkus, Angular y MySQL: filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two full-stack CRUD apps with Quarkus, Angular and MySQL: filtering, sorting, pagination and detail views.</span></li>
+                  <li><span lang="es">Pruebas con JUnit y Mockito; frontend (Angular + Nginx) y backend (Quarkus) en Docker.</span><span lang="en">Tests with JUnit and Mockito; frontend (Angular + Nginx) and backend (Quarkus) in Docker.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ranked = education -->
+  <section id="clasificatoria">
+    <div class="wrap">
+      <div class="title"><span class="gem"></span><h2><span lang="es">CLASIFICATORIA</span><span lang="en">RANKED</span></h2></div>
+      <div class="ranks">
+        <article class="frame rank">
+          <div class="emblem sprite" data-sprite="master" aria-hidden="true"></div>
+          <div>
+            <p class="tier master"><span lang="es">MÁSTER</span><span lang="en">MASTER</span></p>
+            <p><b><span lang="es">Máster en Ingeniería Informática</span><span lang="en">MSc in Computer Engineering</span></b><br><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga · 2025 – actualidad</span><span lang="en">Data Engineering specialization · University of Málaga · 2025 – present</span></p>
+            <div class="pips" title="En curso"><span class="label"><span lang="es">Promoción</span><span lang="en">Promo</span></span><span class="pip done"></span><span class="pip"></span><span class="pip"></span></div>
+          </div>
+        </article>
+        <article class="frame rank">
+          <div class="emblem sprite" data-sprite="diamond" aria-hidden="true"></div>
+          <div>
+            <p class="tier diamond"><span lang="es">DIAMANTE</span><span lang="en">DIAMOND</span></p>
+            <p><b><span lang="es">Grado en Ingeniería Informática</span><span lang="en">BSc in Computer Engineering</span></b><br><span lang="es">Universidad de Málaga · 2021 – 2025</span><span lang="en">University of Málaga · 2021 – 2025</span></p>
+            <div class="pips"><span class="label"><span lang="es">Completado</span><span lang="en">Completed</span></span><span class="pip done"></span><span class="pip done"></span><span class="pip done"></span></div>
+          </div>
+        </article>
+      </div>
+      <div class="toasts">
+        <div class="frame toast">
+          <div class="ico sprite" data-sprite="shield" aria-hidden="true"></div>
+          <div><span class="label"><span lang="es">Logro desbloqueado</span><span lang="en">Achievement unlocked</span></span><p><span lang="es">Certificado de Extensión Universitaria en Ciberseguridad</span><span lang="en">University Extension Certificate in Cybersecurity</span></p></div>
+        </div>
+        <div class="frame toast">
+          <div class="ico sprite" data-sprite="doc" aria-hidden="true"></div>
+          <div><span class="label"><span lang="es">Trabajo Fin de Grado</span><span lang="en">Bachelor's thesis</span></span><p><span lang="es">Análisis de logs de usuarios de una web de diseño de interiores (ver campeones)</span><span lang="en">User log analysis for an interior design web app (see champions)</span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Runes = skills -->
+  <section id="runas">
+    <div class="wrap">
+      <div class="title"><span class="gem"></span><h2><span lang="es">RUNAS</span><span lang="en">RUNES</span></h2></div>
+      <div class="runes">
+        <article class="frame path" style="--c:#0ac8b9">
+          <div class="path-head"><div class="ico sprite" data-sprite="db" aria-hidden="true"></div><div><span class="label"><span lang="es">Principal</span><span lang="en">Primary</span></span><h3 style="color:#0ac8b9"><span lang="es">DATOS</span><span lang="en">DATA</span></h3></div></div>
+          <div class="keystone"><span class="orb">PY</span><div><b>Python</b><br><span class="label"><span lang="es">Piedra angular</span><span lang="en">Keystone</span></span></div></div>
+          <div class="rune-row"><span class="rune">Pandas</span><span class="rune">scikit-learn</span><span class="rune">Plotly</span></div>
+          <div class="rune-row"><span class="rune">SQL</span><span class="rune">MySQL</span><span class="rune">MongoDB</span></div>
+          <div class="rune-row"><span class="rune">R</span><span class="rune">ggplot2</span><span class="rune">Jupyter</span><span class="rune">Grafana</span></div>
+        </article>
+        <article class="frame path" style="--c:#c8aa6e">
+          <div class="path-head"><div class="ico sprite" data-sprite="term" aria-hidden="true"></div><div><span class="label"><span lang="es">Secundaria</span><span lang="en">Secondary</span></span><h3 style="color:#c8aa6e"><span lang="es">DESARROLLO</span><span lang="en">DEVELOPMENT</span></h3></div></div>
+          <div class="keystone"><span class="orb">JV</span><div><b>Java</b><br><span class="label"><span lang="es">Piedra angular</span><span lang="en">Keystone</span></span></div></div>
+          <div class="rune-row"><span class="rune">Spring Boot</span><span class="rune">Quarkus</span><span class="rune">Angular</span></div>
+          <div class="rune-row"><span class="rune">Docker</span><span class="rune">Nginx</span><span class="rune">Git</span><span class="rune">JUnit</span><span class="rune">Mockito</span></div>
+          <div class="rune-row"><span class="rune learning">TypeScript</span><span class="rune learning">Next.js</span><span class="rune learning">Kotlin</span></div>
+        </article>
+        <article class="frame path" style="--c:#e84057">
+          <div class="path-head"><div class="ico sprite" data-sprite="shield" aria-hidden="true"></div><div><span class="label"><span lang="es">Fragmentos</span><span lang="en">Shards</span></span><h3 style="color:#e84057"><span lang="es">CIBER Y ESTÁNDARES</span><span lang="en">CYBER &amp; STANDARDS</span></h3></div></div>
+          <div class="keystone"><span class="orb">GRC</span><div><b><span lang="es">Gobierno, riesgo y cumplimiento</span><span lang="en">Governance, risk &amp; compliance</span></b><br><span class="label"><span lang="es">Piedra angular</span><span lang="en">Keystone</span></span></div></div>
+          <div class="rune-row"><span class="rune learning">ISO 27001</span><span class="rune learning">ENS</span><span class="rune learning"><span lang="es">RGPD</span><span lang="en">GDPR</span></span></div>
+          <div class="rune-row"><span class="rune">HL7</span><span class="rune">FHIR</span></div>
+          <div class="rune-row"><span class="rune learning">GCP</span><span class="rune learning">AWS</span><span class="rune learning">Azure</span></div>
+        </article>
+      </div>
+      <p class="legend"><span lang="es">Borde de color: dominada · Borde gris: subiendo de nivel</span><span lang="en">Colored border: mastered · Grey border: leveling up</span></p>
+    </div>
+  </section>
+
+  <!-- Champion select = projects -->
+  <section id="campeones">
+    <div class="wrap">
+      <div class="title"><span class="gem"></span><h2><span lang="es">ELIGE CAMPEÓN</span><span lang="en">CHAMPION SELECT</span></h2></div>
+      <div class="select">
+        <div class="roster" id="roster" role="group" aria-label="Proyectos">
+          <p class="roster-hint"><span lang="es">Pulsa un retrato para ver sus habilidades.</span><span lang="en">Pick a portrait to see its abilities.</span></p>
+        </div>
+        <article class="frame gold detail" id="detail" aria-live="polite"></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact = match found -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="frame gold found">
+        <div class="ring" aria-hidden="true">
+          <svg viewBox="0 0 30 30" shape-rendering="crispEdges" id="ring"></svg>
+          <span class="t" id="ring-t">10</span>
+        </div>
+        <p class="big-title"><span lang="es">¡PARTIDA ENCONTRADA!</span><span lang="en">MATCH FOUND!</span></p>
+        <p><span lang="es">¿Hacemos dúo? Si tienes una propuesta o quieres saber más de algún proyecto, acepta y escríbeme.</span><span lang="en">Duo queue? If you have an offer or want to know more about a project, accept and drop me a line.</span></p>
+        <div class="actions">
+          <a class="play accept" href="mailto:alvaro31032003@gmail.com"><span lang="es">ACEPTAR</span><span lang="en">ACCEPT</span></a>
+        </div>
+        <div class="actions" style="margin-top:10px">
+          <a class="pbtn" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener">LINKEDIN</a>
+          <a class="pbtn" href="https://github.com/xAllow" target="_blank" rel="noopener">GITHUB</a>
+          <a class="pbtn" href="index.html"><span lang="es">VERSIÓN PRO</span><span lang="en">PRO VERSION</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>© 2026 Álvaro Luque Torres · alvaro31032003@gmail.com</p>
+  <p>
+    <span lang="es">Página hecha por un fan, con pixel art propio. No está respaldada por Riot Games ni refleja sus opiniones. League of Legends y Riot Games son marcas registradas de Riot Games, Inc.</span>
+    <span lang="en">Fan-made page with original pixel art. Not endorsed by Riot Games and doesn't reflect its views. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc.</span>
+  </p>
+</footer>
+
+<script>
+(function () {
+  // ---------------------------------------------------------------- pixel sprites (16 columns, one char per pixel)
+  var SPRITES = {
+    avatar: { pal: { h: "#2b1d14", s: "#e0ac7e", S: "#b9835a", k: "#10141a", t: "#0ac8b9", T: "#067a72", w: "#f0e6d2" }, rows: [
+      "................",
+      ".....hhhhhh.....",
+      "....hhhhhhhh....",
+      "...hhhhhhhhhh...",
+      "...hhsssssshh...",
+      "...hssssssssh...",
+      "...sskssssksS...",
+      "...ssssssssss...",
+      "...ssssSSssss...",
+      "....ssssssss....",
+      ".....ssssss.....",
+      "......ssss......",
+      "...tttttttttt...",
+      "..tttttwwttttt..",
+      ".ttTttttttttTtt.",
+      ".tttttttttttttt."] },
+    crab: { pal: { d: "#10232f", t: "#2fb3a3", T: "#8ff5ea", w: "#f0e6d2", k: "#10141a", p: "#e8a0b4" }, rows: [
+      "................",
+      "................",
+      "...dd......dd...",
+      "..dwkd....dwkd..",
+      "...dd......dd...",
+      "....d......d....",
+      "pp.dddddddddd.pp",
+      "pp.dtTTTTTTtd.pp",
+      ".pdtTTttttTTtdp.",
+      "..dttttttttttd..",
+      "..dddddddddddd..",
+      "..p.p.p..p.p.p..",
+      ".p..p..p.p..p..p",
+      "................",
+      "................",
+      "................"] },
+    chart: { pal: { b: "#3a8fd9", g: "#c8aa6e", t: "#0ac8b9", w: "#a09b8c" }, rows: [
+      "................",
+      "................",
+      "............tt..",
+      "............tt..",
+      "........gg..tt..",
+      "........gg..tt..",
+      "....bb..gg..tt..",
+      "....bb..gg..tt..",
+      "....bb..gg..tt..",
+      ".w..bb..gg..tt..",
+      ".w..bb..gg..tt..",
+      ".w..bb..gg..tt..",
+      ".wwwwwwwwwwwwww.",
+      "................",
+      "................",
+      "................"] },
+    shoe: { pal: { k: "#10141a", w: "#f0e6d2", g: "#c8aa6e", t: "#0ac8b9" }, rows: [
+      "................",
+      "................",
+      "................",
+      "................",
+      "....kkkkk.......",
+      "...kwwwwwk......",
+      "...kwgwgwk......",
+      "...kwwwwwkkk....",
+      "..kwwgwgwwwwkk..",
+      ".kwwwwwwwwwwwwk.",
+      ".kttttttttttttk.",
+      ".kkkkkkkkkkkkkk.",
+      "................",
+      "................",
+      "................",
+      "................"] },
+    candle: { pal: { o: "#e8702a", y: "#ffd76a", k: "#3a2a1a", w: "#f0e6d2", W: "#c9bfa8", g: "#c8aa6e", G: "#785a28" }, rows: [
+      "................",
+      ".......o........",
+      "......oyo.......",
+      "......oyo.......",
+      ".......y........",
+      ".......k........",
+      "......wwW.......",
+      "......wwW.......",
+      "......wwW.......",
+      "......wwW.......",
+      "......wwW.......",
+      "......wwW.......",
+      ".....ggggG......",
+      "....gggggGG.....",
+      "................",
+      "................"] },
+    doc: { pal: { w: "#f0e6d2", l: "#a09b8c", t: "#0ac8b9", g: "#c8aa6e" }, rows: [
+      "................",
+      "..wwwwwwww......",
+      "..wllllllww.....",
+      "..wwwwwwwwww....",
+      "..wllllllllw....",
+      "..wwwwwwwwww....",
+      "..wlllllwwww....",
+      "..wwwwwttttw....",
+      "..wllltwwwwt....",
+      "..wwwwtwwwwt....",
+      "..wwwwtwwwwt....",
+      "..wwwwwtttt.....",
+      "...........gg...",
+      "............gg..",
+      "................",
+      "................"] },
+    diamond: { pal: { g: "#c8aa6e", b: "#7dd3fc", B: "#2a7fbf", w: "#ffffff" }, rows: [
+      "................",
+      "................",
+      ".....gggggg.....",
+      "....gbbbbbbg....",
+      "...gbwbbbbBBg...",
+      "..gbbbbbbBBBBg..",
+      "..gggggggggggg..",
+      "...gBbbbbBBBg...",
+      "....gBbbbBBg....",
+      ".....gBbBBg.....",
+      "......gBBg......",
+      ".......gg.......",
+      "................",
+      "................",
+      "................",
+      "................"] },
+    master: { pal: { g: "#c8aa6e", b: "#c084fc", B: "#7e22ce", w: "#ffffff" }, rows: [
+      "................",
+      "....g..gg..g....",
+      "....gggggggg....",
+      "................",
+      "....gbbbbbbg....",
+      "...gbwbbbbBBg...",
+      "..gbbbbbbBBBBg..",
+      "..gggggggggggg..",
+      "...gBbbbbBBBg...",
+      "....gBbbbBBg....",
+      ".....gBbBBg.....",
+      "......gBBg......",
+      ".......gg.......",
+      "................",
+      "................",
+      "................"] },
+    db: { pal: { t: "#0ac8b9", T: "#067a72", w: "#8ff5ea" }, rows: [
+      "................",
+      "................",
+      "....tttttttt....",
+      "...twwttttttt...",
+      "...tTTTTTTTTt...",
+      "...tttttttttt...",
+      "...tTTTTTTTTt...",
+      "...tttttttttt...",
+      "...tTTTTTTTTt...",
+      "...tttttttttt...",
+      "....tttttttt....",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................"] },
+    shield: { pal: { g: "#c8aa6e", b: "#8c1d2c", w: "#f0e6d2" }, rows: [
+      "................",
+      "...gggggggggg...",
+      "...gbbbbbbbbg...",
+      "...gbbbbbbbbg...",
+      "...gbbbbbbbwg...",
+      "...gbwbbbbwbg...",
+      "...gbbwbbwbbg...",
+      "...gbbbwwbbbg...",
+      "....gbbbbbbg....",
+      ".....gbbbbg.....",
+      "......gbbg......",
+      ".......gg.......",
+      "................",
+      "................",
+      "................",
+      "................"] },
+    term: { pal: { g: "#c8aa6e", d: "#0a1428", t: "#0ac8b9" }, rows: [
+      "................",
+      "................",
+      "..gggggggggggg..",
+      "..gddddddddddg..",
+      "..gdtddddddddg..",
+      "..gddtdddddddg..",
+      "..gdtddtttdddg..",
+      "..gddddddddddg..",
+      "..gggggggggggg..",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................"] }
+  };
+
+  function svg(name) {
+    var s = SPRITES[name], out = [];
+    s.rows.forEach(function (row, y) {
+      // One rect per horizontal run of the same colour.
+      for (var x = 0; x < row.length;) {
+        var c = row[x], end = x;
+        while (end < row.length && row[end] === c) end++;
+        if (c !== "." && s.pal[c]) out.push('<rect x="' + x + '" y="' + y + '" width="' + (end - x) + '" height="1" fill="' + s.pal[c] + '"/>');
+        x = end;
+      }
+    });
+    return '<svg viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">' + out.join("") + "</svg>";
+  }
+  function paint(root) {
+    (root || document).querySelectorAll("[data-sprite]").forEach(function (el) { el.innerHTML = svg(el.dataset.sprite); });
+  }
+
+  // ---------------------------------------------------------------- champions (projects)
+  function t(es, en) { return '<span lang="es">' + es + '</span><span lang="en">' + en + "</span>"; }
+  var CHAMPS = [
+    { id: "jct", sprite: "crab", name: "Jungle Clear Tracker",
+      epithet: t("el Cronometrador de la Jungla", "the Jungle Timekeeper"),
+      roles: [t("ESCRITORIO", "DESKTOP"), t("CÓDIGO ABIERTO", "OPEN SOURCE"), "PYTHON"],
+      lore: t("Mide automáticamente el primer clear de jungla en League of Legends: cuándo muere cada campamento, el orden, los scuttles y un mapa de los primeros 7 minutos.",
+              "Automatically measures the first jungle clear in League of Legends: when each camp dies, the order, scuttles and a map of the first 7 minutes."),
+      abilities: [
+        ["p", t("Solo APIs locales", "Local APIs only"), t("No lee memoria ni tráfico de red: solo las APIs oficiales del juego.", "Reads no memory or network traffic: only the game's official APIs.")],
+        ["q", t("Cronómetro de oro", "Gold stopwatch"), t("Cada monstruo es un salto de oro: tiempos con unos 0,5 s de precisión.", "Every monster kill is a gold jump: timings to about 0.5 s.")],
+        ["w", t("Orden de campamentos", "Camp order"), t("Detecta incluso los que haces a la vez, como Krugs + Rojo.", "Detects even camps done together, like Krugs + Red.")],
+        ["e", t("Mapas de calor", "Heatmaps"), t("Calor, posiciones en cualquier segundo y rutas; tuyas o del jungla rival.", "Heat, positions at any second and routes; yours or the enemy jungler's.")],
+        ["r", t("Reconstrucción del replay", "Replay reconstruction"), t("Cámara cenital y proyección geométrica: posición de los 10 campeones con un error mediano de unas 45 unidades.", "Top-down camera and geometric projection: all 10 champions' positions with a median error of about 45 units.")]
+      ],
+      tech: ["Python", "Tkinter", "matplotlib", "PyInstaller"],
+      links: [["https://github.com/xAllow/jungle-clear-tracker", t("CÓDIGO", "CODE")], ["https://github.com/xAllow/jungle-clear-tracker/releases/latest", t("DESCARGAR", "DOWNLOAD")]] },
+    { id: "panel", sprite: "chart", name: t("Panel de vida", "Life dashboard"),
+      epithet: t("el Cuantificador", "the Quantifier"),
+      roles: [t("DATOS", "DATA"), "WEB", "MONGODB"],
+      lore: t("Dashboard personal con mis datos: más de 760 partidas de League of Legends y más de 600 días de pasos.",
+              "Personal dashboard with my own data: 760+ League of Legends games and 600+ days of step counts."),
+      abilities: [
+        ["p", t("Sincronización incremental", "Incremental sync"), t("Solo descarga lo nuevo desde la última vez.", "Only fetches what's new since last time.")],
+        ["q", t("ETL de Riot", "Riot ETL"), t("API de Riot a MongoDB, con Python.", "Riot API into MongoDB, with Python.")],
+        ["w", t("Pasos", "Steps"), t("Exportaciones de Google Drive unificadas y limpias.", "Google Drive exports, merged and cleaned.")],
+        ["e", t("Paneles a medida", "Custom panels"), t("Paneles reordenables y filtros por rol, campeón, cola, lado y hora.", "Rearrangeable panels and filters by role, champion, queue, side and time.")],
+        ["r", t("Mapa de jungla", "Jungle map"), t("Mapa interactivo con los datos de Jungle Clear Tracker.", "Interactive map with Jungle Clear Tracker's data.")]
+      ],
+      tech: ["Next.js", "TypeScript", "Tailwind", "Recharts", "MongoDB", "Python"],
+      links: [["https://datos-lol.vercel.app", t("VER EN VIVO", "LIVE SITE")]] },
+    { id: "traze", sprite: "shoe", name: "Traze",
+      epithet: t("el Trazador", "the Tracer"),
+      roles: ["ANDROID", "KOTLIN"],
+      lore: t("Convierte una carrera en un sticker con fondo transparente para pegarlo sobre tus fotos en stories de Instagram. El editor es el producto.",
+              "Turns a run into a transparent sticker to place over your photos in Instagram stories. The editor is the product."),
+      abilities: [
+        ["p", t("El editor es el producto", "The editor is the product"), t("Marco, protagonista, color y letra se eligen por separado.", "Frame, centerpiece, colour and font are chosen independently.")],
+        ["q", t("Importar", "Import"), t("Desde Strava (OAuth) o desde un GPX/TCX de cualquier app de running.", "From Strava (OAuth) or a GPX/TCX from any running app.")],
+        ["w", t("Estilos", "Styles"), t("Minimal, Ritmo, Neon, Altitud y Pulso, y presets propios.", "Minimal, Pace, Neon, Elevation and Heart rate, plus your own presets.")],
+        ["e", t("Degradados", "Gradients"), t("Color según ritmo, pulso, cadencia, altitud o pendiente.", "Colour by pace, heart rate, cadence, elevation or slope.")],
+        ["r", t("Sticker animado", "Animated sticker"), t("Vídeo de 15 s en el que la ruta se dibuja y las cifras cuentan.", "15-second video where the route draws itself and the numbers count up.")]
+      ],
+      tech: ["Kotlin", "Android", "Strava API"],
+      links: [] },
+    { id: "montilla", sprite: "candle", name: "Montilla Pasión Go",
+      epithet: t("la Guía de la Semana Santa", "the Holy Week Guide"),
+      roles: ["WEB", t("EN PRODUCCIÓN", "IN PRODUCTION")],
+      lore: t("La web de la Semana Santa de Montilla: hermandades, itinerarios y recorridos para seguirla en la calle.",
+              "The website for Holy Week in Montilla: brotherhoods, schedules and routes to follow it in the street."),
+      abilities: [
+        ["p", t("En producción", "In production"), t("Web pública con dominio propio.", "Public site with its own domain.")],
+        ["q", t("Hermandades", "Brotherhoods"), t("Una página por hermandad: sede, vestimenta, horarios.", "A page per brotherhood: seat, robes, schedules.")],
+        ["w", t("Recorridos", "Routes"), t("Itinerarios sobre mapa con Leaflet.", "Routes on a map with Leaflet.")],
+        ["e", t("En directo", "Live"), t("Estado de cada hermandad: sin salir, en la calle, recogida.", "Each brotherhood's status: not out, in the street, back in.")],
+        ["r", t("Panel de administración", "Admin panel"), t("Gestión del contenido sobre Supabase, con SEO.", "Content management on Supabase, with SEO.")]
+      ],
+      tech: ["Next.js", "TypeScript", "Supabase", "Leaflet", "Tailwind"],
+      links: [["https://montillapasiongo.app", t("VER EN VIVO", "LIVE SITE")]] },
+    { id: "tfg", sprite: "doc", name: t("Análisis de logs (TFG)", "Log analysis (thesis)"),
+      epithet: t("el Lector de Logs", "the Log Reader"),
+      roles: [t("DATOS", "DATA"), "TFG"],
+      lore: t("Estudio del comportamiento de los usuarios de una aplicación web de diseño de interiores a partir de sus logs.",
+              "A study of how users behave in an interior design web app, based on its logs."),
+      abilities: [
+        ["p", t("De logs a conclusiones", "From logs to insights"), t("Todo el análisis es reproducible.", "The whole analysis is reproducible.")],
+        ["q", t("Procesamiento", "Processing"), t("Limpieza y análisis en notebooks de Python.", "Cleaning and analysis in Python notebooks.")],
+        ["w", t("Geolocalización", "Geolocation"), t("IPs por país y comunidad autónoma.", "IPs by country and region.")],
+        ["e", t("Grafana en modo kiosko", "Grafana kiosk mode"), t("Dashboards servidos con Node.js y Docker.", "Dashboards served with Node.js and Docker.")],
+        ["r", t("Documentación", "Documentation"), t("Informe generado con Quarto.", "Report built with Quarto.")]
+      ],
+      tech: ["Python", "Jupyter", "Grafana", "Docker", "Quarto"],
+      links: [] }
+  ];
+
+  var roster = document.getElementById("roster"), detail = document.getElementById("detail");
+  function show(id) {
+    var c = CHAMPS.filter(function (x) { return x.id === id; })[0];
+    roster.querySelectorAll(".pick").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.id === id ? "true" : "false"); });
+    detail.innerHTML =
+      '<div class="detail-head"><div class="big sprite" data-sprite="' + c.sprite + '" aria-hidden="true"></div><div>' +
+      "<h3>" + c.name + '</h3><p class="epithet">' + c.epithet + '</p><div class="roles">' +
+      c.roles.map(function (r) { return '<span class="role">' + r + "</span>"; }).join("") + "</div></div></div>" +
+      '<p class="lore">' + c.lore + '</p><div class="abilities">' +
+      c.abilities.map(function (a) {
+        return '<div class="ability"><span class="key ' + a[0] + '">' + a[0].toUpperCase() + "</span><div><b>" + a[1] + '</b><span class="d">' + a[2] + "</span></div></div>";
+      }).join("") + '</div><div class="items">' +
+      c.tech.map(function (x) { return '<span class="slot">' + x.toUpperCase() + "</span>"; }).join("") + '</div><div class="links">' +
+      (c.links.length
+        ? c.links.map(function (l, i) { return '<a class="play' + (i ? " alt" : "") + '" href="' + l[0] + '" target="_blank" rel="noopener">' + l[1] + "</a>"; }).join("")
+        : '<span class="locked">🔒 ' + t("CÓDIGO PRIVADO", "PRIVATE CODE") + "</span>") +
+      "</div>";
+    paint(detail);
+  }
+  CHAMPS.forEach(function (c) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "pick sprite"; b.dataset.id = c.id; b.dataset.sprite = c.sprite;
+    b.setAttribute("aria-label", c.name.replace(/<[^>]+>/g, " ").trim());
+    b.addEventListener("click", function () { show(c.id); });
+    roster.insertBefore(b, roster.querySelector(".roster-hint"));
+  });
+  paint();
+  show("jct");
+
+  // ---------------------------------------------------------------- queue timer, "match found" ring
+  var start = Date.now(), timer = document.getElementById("queue-timer");
+  setInterval(function () {
+    var s = Math.floor((Date.now() - start) / 1000);
+    timer.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+  }, 1000);
+
+  // Pixel ring of 28 blocks that empties like the accept countdown, then starts again.
+  var ring = document.getElementById("ring"), ringT = document.getElementById("ring-t"), blocks = [];
+  for (var i = 0; i < 28; i++) {
+    var a = (i / 28) * Math.PI * 2 - Math.PI / 2;
+    blocks.push('<rect x="' + Math.round(13 + Math.cos(a) * 12) + '" y="' + Math.round(13 + Math.sin(a) * 12) + '" width="3" height="3"/>');
+  }
+  ring.innerHTML = blocks.join("");
+  var rects = ring.querySelectorAll("rect"), left = 10;
+  function tick() {
+    var lit = Math.round((left / 10) * rects.length);
+    rects.forEach(function (r, i) { r.setAttribute("fill", i < lit ? "#0ac8b9" : "#13233a"); });
+    ringT.textContent = left;
+    left = left <= 0 ? 10 : left - 1;
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ---------------------------------------------------------------- language (shared with the pro page)
+  var root = document.documentElement;
+  var titles = { es: "Álvaro Luque · Modo invocador", en: "Álvaro Luque · Summoner mode" };
+  function setLang(lang) {
+    root.lang = lang; document.title = titles[lang];
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  setLang(saved === "es" || saved === "en" ? saved : ((navigator.language || "es").slice(0, 2) === "es" ? "es" : "en"));
+  document.getElementById("lang-btn").addEventListener("click", function () { setLang(root.lang === "es" ? "en" : "es"); });
+})();
+</script>
+</body>
+</html>

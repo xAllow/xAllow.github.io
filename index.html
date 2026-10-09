@@ -100,6 +100,9 @@ nav a:hover { color: var(--text); background: var(--surface-2); }
 }
 .pill-btn:hover { color: var(--text); }
 .pill-btn b { color: var(--accent-text); font-weight: 600; }
+.pill-btn.summoner { text-decoration: none; color: #c8aa6e; border-color: #785a28; background: #0a1428; }
+.pill-btn.summoner:hover { color: #f0e6d2; }
+@media (max-width: 420px) { .pill-btn.summoner span { display: none !important; } }
 
 /* Hero */
 .hero { padding-top: 72px; padding-bottom: 56px; }
@@ -242,6 +245,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
       <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
     </nav>
     <div class="tools">
+      <a class="pill-btn summoner" href="invocador.html" title="Modo invocador · Summoner mode">▶ <span lang="es">Modo invocador</span><span lang="en">Summoner mode</span></a>
       <button class="pill-btn" id="lang-btn" type="button" aria-label="Cambiar idioma / Change language">
         <span lang="es"><b>ES</b> · EN</span><span lang="en">ES · <b>EN</b></span>
       </button>
