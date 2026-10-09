@@ -202,7 +202,7 @@ h3 { font-size: 21px; letter-spacing: -.015em; margin: 8px 0 8px; }
 /* Skills */
 .skills { display: grid; gap: 16px; }
 @media (min-width: 720px) { .skills { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 980px) { .skills { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 980px) { .skills { grid-template-columns: repeat(4, 1fr); } }
 .skill { padding: 20px; }
 .skill h3 { font-size: 14px; margin: 0 0 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
 .skill .chips { margin: 0; }
@@ -235,10 +235,10 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
   <div class="wrap bar">
     <a class="logo" href="#top">Álvaro<span>.</span></a>
     <nav>
-      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
       <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
       <a href="#formacion"><span lang="es">Formación</span><span lang="en">Education</span></a>
       <a href="#competencias"><span lang="es">Competencias</span><span lang="en">Skills</span></a>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
       <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
     </nav>
     <div class="tools">
@@ -255,8 +255,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
     <h1>Álvaro Luque Torres</h1>
     <p class="role"><span lang="es">Ingeniero informático · Ingeniería de datos y desarrollo de software</span><span lang="en">Software engineer · Data engineering and software development</span></p>
     <p class="pitch">
-      <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en Ingeniería de Datos. Me interesa sobre todo el tratamiento y análisis de datos, y lo combino con experiencia práctica desarrollando software, tanto en empresa como en proyectos propios: de la ingesta de datos a la app que los usa.</span>
-      <span lang="en">Computer Engineering graduate from the University of Málaga, currently studying the Master's degree with a specialization in Data Engineering. I'm especially interested in processing and analyzing data, and I combine it with hands-on software development experience, both professionally and in my own projects: from data ingestion to the app that uses it.</span>
+      <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en Ingeniería de Datos. Me interesa sobre todo el tratamiento y análisis de datos, y lo combino con experiencia práctica desarrollando software, tanto en empresa como en proyectos propios: de la ingesta de datos a la app que los usa. Ahora también me especializo en ciberseguridad desde el lado de GRC (gobierno, riesgo y cumplimiento), donde voy a hacer prácticas.</span>
+      <span lang="en">Computer Engineering graduate from the University of Málaga, currently studying the Master's degree with a specialization in Data Engineering. I'm especially interested in processing and analyzing data, and I combine it with hands-on software development experience, both professionally and in my own projects: from data ingestion to the app that uses it. I'm now also specializing in cybersecurity from the GRC side (governance, risk and compliance), where I'm about to start an internship.</span>
     </p>
     <div class="cta">
       <a class="btn primary" href="mailto:alvaro31032003@gmail.com"><svg><use href="#i-mail"/></svg><span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
@@ -270,10 +270,85 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
     </div>
   </div>
 
+  <!-- Experience -->
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">01</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2></div>
+      <div class="timeline">
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
+            <span class="when">03/2025 – 05/2025</span>
+          </div>
+          <p class="where">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
+          <ul class="points">
+            <li><span lang="es">Integración de estándares sanitarios HL7 y FHIR: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">Healthcare standards integration: parsing HL7 messages and mapping them to FHIR resources with HAPI FHIR in Spring Boot.</span></li>
+            <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en Spring Boot y en Quarkus.</span><span lang="en">REST APIs with XML responses and basic authentication, in both Spring Boot and Quarkus.</span></li>
+            <li><span lang="es">Migración de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en">Migration of a proxy service from Open Liberty to Quarkus.</span></li>
+            <li><span lang="es">Dos aplicaciones CRUD full stack con Quarkus, Angular y MySQL, con filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two full-stack CRUD applications with Quarkus, Angular and MySQL, including filtering, sorting, pagination and detail views.</span></li>
+            <li><span lang="es">Pruebas unitarias con JUnit y Mockito; contenerización del frontend (Angular + Nginx) y del backend (Quarkus) con Docker.</span><span lang="en">Unit tests with JUnit and Mockito; containerized the frontend (Angular + Nginx) and the backend (Quarkus) with Docker.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="formacion">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">02</span><h2><span lang="es">Formación</span><span lang="en">Education</span></h2></div>
+      <div class="two">
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Máster en Ingeniería Informática</span><span lang="en">MSc in Computer Engineering</span></h3>
+            <span class="when"><span lang="es">2025 – actualidad</span><span lang="en">2025 – present</span></span>
+          </div>
+          <p class="where"><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga</span><span lang="en">Data Engineering specialization · University of Málaga</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Grado en Ingeniería Informática</span><span lang="en">BSc in Computer Engineering</span></h3>
+            <span class="when">2021 – 2025</span>
+          </div>
+          <p class="where"><span lang="es">Universidad de Málaga</span><span lang="en">University of Málaga</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Certificado de Extensión Universitaria en Ciberseguridad</span><span lang="en">University Extension Certificate in Cybersecurity</span></h3>
+          </div>
+          <p class="where"><span lang="es">Diploma</span><span lang="en">Diploma</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
+          </div>
+          <p class="where"><span lang="es">Español (nativo) · Inglés (B1), con buena comprensión lectora de documentación técnica</span><span lang="en">Spanish (native) · English (B1), comfortable reading technical documentation</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="competencias">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">03</span><h2><span lang="es">Competencias técnicas</span><span lang="en">Technical skills</span></h2></div>
+      <div class="skills">
+        <div class="card skill"><h3><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3><ul class="chips"><li>Java</li><li>Python</li><li>R</li><li>SQL</li><li>TypeScript</li><li>Kotlin</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="chips"><li>Pandas</li><li>Scikit-learn</li><li>Plotly</li><li>ggplot2</li><li>dplyr</li><li>Grafana</li></ul></div>
+        <div class="card skill"><h3>Frameworks</h3><ul class="chips"><li>Spring Boot</li><li>Quarkus</li><li>Angular</li><li>Next.js</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Bases de datos</span><span lang="en">Databases</span></h3><ul class="chips"><li>MySQL</li><li>MongoDB</li><li>Supabase</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Herramientas</span><span lang="en">Tools</span></h3><ul class="chips"><li>Docker</li><li>Nginx</li><li>Git</li><li>JUnit</li><li>Mockito</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Ciberseguridad y GRC</span><span lang="en">Cybersecurity &amp; GRC</span></h3><ul class="chips"><li>ISO 27001</li><li>ENS</li><li lang="es">RGPD</li><li lang="en">GDPR</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Estándares sanitarios</span><span lang="en">Healthcare standards</span></h3><ul class="chips"><li>HL7</li><li>FHIR</li></ul></div>
+        <div class="card skill"><h3>Cloud</h3><ul class="chips"><li>GCP</li><li>AWS</li><li>Azure</li><li>Vercel</li></ul></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Projects -->
   <section id="proyectos">
     <div class="wrap">
-      <div class="sec-head"><span class="num">01</span><h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2></div>
+      <div class="sec-head"><span class="num">04</span><h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2></div>
 
       <article class="card featured">
         <div class="shot"><img src="img/jungle-clear-tracker.jpg" alt="Jungle Clear Tracker: mapa de calor de los primeros minutos sobre el mapa de League of Legends" loading="lazy"></div>
@@ -377,79 +452,6 @@ sessions(<span class="k">df</span>).funnel()
             <div class="links"><span class="private"><svg><use href="#i-lock"/></svg><span lang="es">Código privado</span><span lang="en">Private code</span></span></div>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experiencia">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">02</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2></div>
-      <div class="timeline">
-        <article class="card item">
-          <div class="item-head">
-            <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
-            <span class="when">03/2025 – 05/2025</span>
-          </div>
-          <p class="where">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
-          <ul class="points">
-            <li><span lang="es">Integración de estándares sanitarios HL7 y FHIR: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">Healthcare standards integration: parsing HL7 messages and mapping them to FHIR resources with HAPI FHIR in Spring Boot.</span></li>
-            <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en Spring Boot y en Quarkus.</span><span lang="en">REST APIs with XML responses and basic authentication, in both Spring Boot and Quarkus.</span></li>
-            <li><span lang="es">Migración de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en">Migration of a proxy service from Open Liberty to Quarkus.</span></li>
-            <li><span lang="es">Dos aplicaciones CRUD full stack con Quarkus, Angular y MySQL, con filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two full-stack CRUD applications with Quarkus, Angular and MySQL, including filtering, sorting, pagination and detail views.</span></li>
-            <li><span lang="es">Pruebas unitarias con JUnit y Mockito; contenerización del frontend (Angular + Nginx) y del backend (Quarkus) con Docker.</span><span lang="en">Unit tests with JUnit and Mockito; containerized the frontend (Angular + Nginx) and the backend (Quarkus) with Docker.</span></li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="formacion">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">03</span><h2><span lang="es">Formación</span><span lang="en">Education</span></h2></div>
-      <div class="two">
-        <article class="card item">
-          <div class="item-head">
-            <h3><span lang="es">Máster en Ingeniería Informática</span><span lang="en">MSc in Computer Engineering</span></h3>
-            <span class="when"><span lang="es">2025 – actualidad</span><span lang="en">2025 – present</span></span>
-          </div>
-          <p class="where"><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga</span><span lang="en">Data Engineering specialization · University of Málaga</span></p>
-        </article>
-        <article class="card item">
-          <div class="item-head">
-            <h3><span lang="es">Grado en Ingeniería Informática</span><span lang="en">BSc in Computer Engineering</span></h3>
-            <span class="when">2021 – 2025</span>
-          </div>
-          <p class="where"><span lang="es">Universidad de Málaga</span><span lang="en">University of Málaga</span></p>
-        </article>
-        <article class="card item">
-          <div class="item-head">
-            <h3><span lang="es">Certificado de Extensión Universitaria en Ciberseguridad</span><span lang="en">University Extension Certificate in Cybersecurity</span></h3>
-          </div>
-          <p class="where"><span lang="es">Diploma</span><span lang="en">Diploma</span></p>
-        </article>
-        <article class="card item">
-          <div class="item-head">
-            <h3><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
-          </div>
-          <p class="where"><span lang="es">Español (nativo) · Inglés (B1), con buena comprensión lectora de documentación técnica</span><span lang="en">Spanish (native) · English (B1), comfortable reading technical documentation</span></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="competencias">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">04</span><h2><span lang="es">Competencias técnicas</span><span lang="en">Technical skills</span></h2></div>
-      <div class="skills">
-        <div class="card skill"><h3><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3><ul class="chips"><li>Java</li><li>Python</li><li>R</li><li>SQL</li><li>TypeScript</li><li>Kotlin</li></ul></div>
-        <div class="card skill"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="chips"><li>Pandas</li><li>Scikit-learn</li><li>Plotly</li><li>ggplot2</li><li>dplyr</li><li>Grafana</li></ul></div>
-        <div class="card skill"><h3>Frameworks</h3><ul class="chips"><li>Spring Boot</li><li>Quarkus</li><li>Angular</li><li>Next.js</li></ul></div>
-        <div class="card skill"><h3><span lang="es">Bases de datos</span><span lang="en">Databases</span></h3><ul class="chips"><li>MySQL</li><li>MongoDB</li><li>Supabase</li></ul></div>
-        <div class="card skill"><h3><span lang="es">Herramientas</span><span lang="en">Tools</span></h3><ul class="chips"><li>Docker</li><li>Nginx</li><li>Git</li><li>JUnit</li><li>Mockito</li></ul></div>
-        <div class="card skill"><h3><span lang="es">Sanidad y cloud</span><span lang="en">Healthcare &amp; cloud</span></h3><ul class="chips"><li>HL7</li><li>FHIR</li><li>GCP</li><li>AWS</li><li>Azure</li></ul></div>
       </div>
     </div>
   </section>
