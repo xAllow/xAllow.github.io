@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Álvaro Luque Torres</title>
+<meta name="description" content="Ingeniero informático especializado en ingeniería de datos. CV y proyectos: análisis de datos, desarrollo web y apps.">
+<meta property="og:title" content="Álvaro Luque Torres · Portfolio">
+<meta property="og:description" content="Ingeniero informático · Ingeniería de datos. CV y proyectos.">
+<meta property="og:image" content="https://xallow.github.io/img/jungle-clear-tracker.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314b8a6'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23042f2e'%3EAL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --border: #e3e6eb;
+  --text: #14171c;
+  --muted: #5b6472;
+  --accent: #0d9488;
+  --accent-soft: #ccfbf1;
+  --accent-text: #0f766e;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 8px 24px rgba(16, 24, 40, .06);
+  --radius: 16px;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0d10;
+    --surface: #13161b;
+    --surface-2: #1a1e25;
+    --border: #252a33;
+    --text: #e8eaee;
+    --muted: #9aa3b2;
+    --accent: #2dd4bf;
+    --accent-soft: rgba(45, 212, 191, .12);
+    --accent-text: #5eead4;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b0d10;
+  --surface: #13161b;
+  --surface-2: #1a1e25;
+  --border: #252a33;
+  --text: #e8eaee;
+  --muted: #9aa3b2;
+  --accent: #2dd4bf;
+  --accent-soft: rgba(45, 212, 191, .12);
+  --accent-text: #5eead4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}
+
+/* Language: every bilingual text exists twice; only the active language is shown. */
+html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+/* Header */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.bar { display: flex; align-items: center; gap: 16px; height: 60px; }
+.logo { font-weight: 700; text-decoration: none; letter-spacing: -.02em; }
+.logo span { color: var(--accent-text); }
+nav { display: flex; gap: 4px; margin-left: auto; }
+nav a {
+  text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500;
+  padding: 6px 10px; border-radius: 8px;
+}
+nav a:hover { color: var(--text); background: var(--surface-2); }
+@media (max-width: 680px) { nav { display: none; } .tools { margin-left: auto; } }
+.tools { display: flex; gap: 6px; }
+.pill-btn {
+  font: 600 12px/1 var(--mono); color: var(--muted);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; cursor: pointer;
+}
+.pill-btn:hover { color: var(--text); }
+.pill-btn b { color: var(--accent-text); font-weight: 600; }
+
+/* Hero */
+.hero { padding-top: 72px; padding-bottom: 56px; }
+.kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 13px/1 var(--mono); color: var(--accent-text);
+  background: var(--accent-soft); padding: 7px 12px; border-radius: 999px;
+}
+.kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+h1 {
+  font-size: clamp(38px, 7vw, 64px); line-height: 1.05; letter-spacing: -.035em;
+  margin: 20px 0 12px; font-weight: 700;
+}
+.role { font-size: clamp(18px, 2.6vw, 22px); color: var(--muted); margin: 0 0 20px; font-weight: 500; }
+.pitch { max-width: 680px; font-size: 17px; margin: 0 0 28px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; font-weight: 600; font-size: 15px;
+  padding: 11px 16px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--surface);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #042f2e; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; color: var(--muted); font-size: 14px; }
+.facts span { display: inline-flex; align-items: center; gap: 7px; }
+.facts svg { width: 16px; height: 16px; }
+
+/* Sections */
+section { padding: 48px 0; }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 24px; }
+.sec-head .num { font: 500 13px var(--mono); color: var(--accent-text); }
+h2 { font-size: 28px; letter-spacing: -.02em; margin: 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+/* Projects */
+.featured { display: grid; overflow: hidden; margin-bottom: 20px; }
+@media (min-width: 860px) { .featured { grid-template-columns: 1.15fr 1fr; } }
+.featured .shot { background: #000; display: grid; place-items: center; }
+.featured .shot img { width: 100%; height: 100%; max-height: 520px; object-fit: contain; }
+.featured .body { padding: 26px; }
+.projects { display: grid; gap: 20px; }
+@media (min-width: 720px) { .projects { grid-template-columns: 1fr 1fr; } }
+.project { display: flex; flex-direction: column; overflow: hidden; }
+.project .shot { aspect-ratio: 16 / 9; background: #0b0d10; overflow: hidden; border-bottom: 1px solid var(--border); }
+.project .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .4s ease; }
+.project .shot.contain img { object-fit: contain; object-position: center; }
+.project:hover .shot img { transform: scale(1.03); }
+.project .body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+.tag {
+  font: 500 12px/1 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em;
+}
+h3 { font-size: 21px; letter-spacing: -.015em; margin: 8px 0 8px; }
+.project p, .featured p { margin: 0 0 12px; color: var(--muted); }
+.points { margin: 0 0 16px; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+.points li { position: relative; padding-left: 18px; margin: 5px 0; }
+.points li::before { content: ""; position: absolute; left: 2px; top: .68em; width: 6px; height: 6px; border-radius: 2px; background: var(--accent); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+.chips li {
+  font: 500 12.5px/1 var(--mono); padding: 6px 9px; border-radius: 7px;
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text);
+}
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.links a, .links .private {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600;
+  text-decoration: none; padding: 8px 12px; border-radius: 9px;
+  border: 1px solid var(--border); background: var(--surface-2);
+}
+.links a:hover { border-color: var(--accent); color: var(--accent-text); }
+.links .private { color: var(--muted); font-weight: 500; }
+.links svg { width: 15px; height: 15px; }
+.tfg-art {
+  height: 100%; display: grid; place-items: center; padding: 20px;
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(45, 212, 191, .25), transparent 60%),
+    radial-gradient(500px 200px at 90% 100%, rgba(99, 102, 241, .28), transparent 60%),
+    #0f1217;
+}
+.tfg-art pre {
+  margin: 0; font: 13px/1.6 var(--mono); color: #cbd5e1; white-space: pre; overflow: hidden; max-width: 100%;
+}
+.tfg-art .k { color: #5eead4; } .tfg-art .s { color: #a5b4fc; } .tfg-art .c { color: #64748b; }
+
+/* Experience / education */
+.timeline { display: grid; gap: 16px; }
+.item { padding: 22px; }
+.item-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.item h3 { margin: 0; font-size: 18px; }
+.when { font: 500 13px var(--mono); color: var(--accent-text); white-space: nowrap; }
+.where { color: var(--muted); margin: 2px 0 10px; font-size: 15px; }
+.item .points { margin-bottom: 0; }
+.two { display: grid; gap: 16px; }
+@media (min-width: 720px) { .two { grid-template-columns: 1fr 1fr; } }
+
+/* Skills */
+.skills { display: grid; gap: 16px; }
+@media (min-width: 720px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .skills { grid-template-columns: repeat(3, 1fr); } }
+.skill { padding: 20px; }
+.skill h3 { font-size: 14px; margin: 0 0 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.skill .chips { margin: 0; }
+
+/* Contact */
+.contact { padding: 32px; text-align: center; }
+.contact h2 { margin-bottom: 8px; }
+.contact p { color: var(--muted); margin: 0 auto 22px; max-width: 520px; }
+.contact .cta { justify-content: center; }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Álvaro<span>.</span></a>
+    <nav>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
+      <a href="#formacion"><span lang="es">Formación</span><span lang="en">Education</span></a>
+      <a href="#competencias"><span lang="es">Competencias</span><span lang="en">Skills</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="tools">
+      <button class="pill-btn" id="lang-btn" type="button" aria-label="Cambiar idioma / Change language">
+        <span lang="es"><b>ES</b> · EN</span><span lang="en">ES · <b>EN</b></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <span class="kicker"><span lang="es">Máster en Ingeniería de Datos · UMA</span><span lang="en">MSc in Data Engineering · University of Málaga</span></span>
+    <h1>Álvaro Luque Torres</h1>
+    <p class="role"><span lang="es">Ingeniero informático · Ingeniería de datos y desarrollo de software</span><span lang="en">Software engineer · Data engineering and software development</span></p>
+    <p class="pitch">
+      <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en Ingeniería de Datos. Me interesa sobre todo el tratamiento y análisis de datos, y lo combino con experiencia práctica desarrollando software, tanto en empresa como en proyectos propios: de la ingesta de datos a la app que los usa.</span>
+      <span lang="en">Computer Engineering graduate from the University of Málaga, currently studying the Master's degree with a specialization in Data Engineering. I'm especially interested in processing and analyzing data, and I combine it with hands-on software development experience, both professionally and in my own projects: from data ingestion to the app that uses it.</span>
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:alvaro31032003@gmail.com"><svg><use href="#i-mail"/></svg><span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
+      <a class="btn" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/xAllow" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
+    </div>
+    <div class="facts">
+      <span><svg><use href="#i-pin"/></svg><span lang="es">Málaga, España</span><span lang="en">Málaga, Spain</span></span>
+      <span><svg><use href="#i-cap"/></svg><span lang="es">Grado en Ingeniería Informática (2021–2025)</span><span lang="en">BSc in Computer Engineering (2021–2025)</span></span>
+      <span><svg><use href="#i-lang"/></svg><span lang="es">Español nativo · Inglés B1</span><span lang="en">Spanish (native) · English B1</span></span>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">01</span><h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2></div>
+
+      <article class="card featured">
+        <div class="shot"><img src="img/jungle-clear-tracker.jpg" alt="Jungle Clear Tracker: mapa de calor de los primeros minutos sobre el mapa de League of Legends" loading="lazy"></div>
+        <div class="body">
+          <span class="tag"><span lang="es">App de escritorio · Código abierto</span><span lang="en">Desktop app · Open source</span></span>
+          <h3>Jungle Clear Tracker</h3>
+          <p>
+            <span lang="es">Mide automáticamente el primer clear de jungla en League of Legends: cuándo muere cada campamento, el orden, los scuttles y un mapa de los primeros 7 minutos, solo con las APIs locales del juego.</span>
+            <span lang="en">Automatically measures the first jungle clear in League of Legends: when each camp dies, the order, scuttles and a map of the first 7 minutes, using only the game's local APIs.</span>
+          </p>
+          <ul class="points">
+            <li><span lang="es">Captura en directo del oro: cada monstruo es un salto, así que los tiempos tienen ~0,5 s de precisión.</span><span lang="en">Live gold capture: every monster kill is a jump, so timings are accurate to ~0.5 s.</span></li>
+            <li><span lang="es">Tras la partida automatiza el replay con una cámara cenital y proyección geométrica para reconstruir la posición de los 10 campeones (error mediano ~45 unidades frente al timeline de Riot).</span><span lang="en">After the game it drives the replay with a top-down camera and geometric projection to rebuild all 10 champions' positions (median error ~45 units vs Riot's timeline).</span></li>
+            <li><span lang="es">Mapas de calor, rutas y winrate por ruta; segundo plano, arranque con Windows y exe con asistente de configuración.</span><span lang="en">Heatmaps, routes and win rate by route; runs in the background, starts with Windows, single exe with a setup wizard.</span></li>
+          </ul>
+          <ul class="chips"><li>Python</li><li>Tkinter</li><li>matplotlib</li><li>REST APIs</li><li>PyInstaller</li></ul>
+          <div class="links">
+            <a href="https://github.com/xAllow/jungle-clear-tracker" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span lang="es">Código</span><span lang="en">Code</span></a>
+            <a href="https://github.com/xAllow/jungle-clear-tracker/releases/latest" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg><span lang="es">Descargar</span><span lang="en">Download</span></a>
+          </div>
+        </div>
+      </article>
+
+      <div class="projects">
+        <article class="card project">
+          <div class="shot"><img src="img/datos-lol.jpg" alt="Panel de vida: pestaña de League of Legends con KPIs y gráficos" loading="lazy"></div>
+          <div class="body">
+            <span class="tag"><span lang="es">Ingeniería de datos · Dashboard web</span><span lang="en">Data engineering · Web dashboard</span></span>
+            <h3><span lang="es">Panel de vida</span><span lang="en">Life dashboard</span></h3>
+            <p>
+              <span lang="es">Dashboard personal con mis datos: más de 760 partidas de League of Legends y más de 600 días de pasos.</span>
+              <span lang="en">Personal dashboard with my own data: 760+ League of Legends games and 600+ days of step counts.</span>
+            </p>
+            <ul class="points">
+              <li><span lang="es">ETL en Python: API de Riot y exportaciones de Google Drive a MongoDB, con sincronización incremental.</span><span lang="en">Python ETL: Riot API and Google Drive exports into MongoDB, synced incrementally.</span></li>
+              <li><span lang="es">Paneles reordenables y filtros por rol, campeón, cola, lado y franja horaria; mapa de jungla interactivo.</span><span lang="en">Rearrangeable panels and filters by role, champion, queue, side and time of day; interactive jungle map.</span></li>
+            </ul>
+            <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>Recharts</li><li>MongoDB</li><li>Python</li></ul>
+            <div class="links">
+              <a href="https://datos-lol.vercel.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="shot contain"><img src="img/traze.jpg" alt="Traze: ocho estilos de sticker de la misma carrera" loading="lazy"></div>
+          <div class="body">
+            <span class="tag"><span lang="es">App Android</span><span lang="en">Android app</span></span>
+            <h3>Traze</h3>
+            <p>
+              <span lang="es">Convierte una carrera en un sticker con fondo transparente para pegarlo sobre tus fotos en stories de Instagram. El editor es el producto.</span>
+              <span lang="en">Turns a run into a transparent sticker to place over your photos in Instagram stories. The editor is the product.</span>
+            </p>
+            <ul class="points">
+              <li><span lang="es">Importa desde Strava (OAuth) o desde ficheros GPX/TCX compartidos por cualquier app de running.</span><span lang="en">Imports from Strava (OAuth) or from GPX/TCX files shared by any running app.</span></li>
+              <li><span lang="es">Estilos, marcos, degradados por ritmo, pulso o pendiente, presets, y exportación a PNG o a vídeo animado de 15 s.</span><span lang="en">Styles, frames, gradients by pace, heart rate or slope, presets, and export to PNG or a 15-second animated video.</span></li>
+            </ul>
+            <ul class="chips"><li>Kotlin</li><li>Android</li><li>Strava API</li></ul>
+            <div class="links"><span class="private"><svg><use href="#i-lock"/></svg><span lang="es">Código privado</span><span lang="en">Private code</span></span></div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="shot"><img src="img/montilla.jpg" alt="Montilla Pasión Go: portada con la cuenta atrás al Domingo de Ramos" loading="lazy"></div>
+          <div class="body">
+            <span class="tag"><span lang="es">Web · En producción</span><span lang="en">Web · In production</span></span>
+            <h3>Montilla Pasión Go</h3>
+            <p>
+              <span lang="es">La web de la Semana Santa de Montilla: hermandades, itinerarios y recorridos para seguirla en la calle.</span>
+              <span lang="en">The website for Holy Week in Montilla: brotherhoods, schedules and routes to follow the processions in the street.</span>
+            </p>
+            <ul class="points">
+              <li><span lang="es">Recorridos sobre mapa y estado de cada hermandad en directo (sin salir, en la calle, recogida).</span><span lang="en">Routes on a map and each brotherhood's live status (not out yet, in the street, back in).</span></li>
+              <li><span lang="es">Panel de administración, base de datos en Supabase y SEO (sitemap, metadatos).</span><span lang="en">Admin panel, Supabase database and SEO (sitemap, metadata).</span></li>
+            </ul>
+            <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>Leaflet</li><li>Tailwind</li></ul>
+            <div class="links">
+              <a href="https://montillapasiongo.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="shot"><div class="tfg-art" aria-hidden="true"><pre><span class="c"># logs → sesiones → insights</span>
+<span class="k">df</span> = parse(<span class="s">"access.log"</span>)
+<span class="k">df</span>[<span class="s">"region"</span>] = geo(<span class="k">df</span>.ip)
+sessions(<span class="k">df</span>).funnel()
+<span class="c"># → Grafana · Quarto</span></pre></div></div>
+          <div class="body">
+            <span class="tag"><span lang="es">Trabajo Fin de Grado</span><span lang="en">Bachelor's thesis</span></span>
+            <h3><span lang="es">Análisis de logs de usuarios</span><span lang="en">User log analysis</span></h3>
+            <p>
+              <span lang="es">Estudio del comportamiento de los usuarios de una aplicación web de diseño de interiores a partir de sus logs.</span>
+              <span lang="en">A study of how users behave in an interior design web app, based on its logs.</span>
+            </p>
+            <ul class="points">
+              <li><span lang="es">Procesamiento y análisis en notebooks, con geolocalización de IPs por país y comunidad autónoma.</span><span lang="en">Processing and analysis in notebooks, with IP geolocation by country and region.</span></li>
+              <li><span lang="es">Dashboards en Grafana servidos en modo kiosko (Node.js + Docker) y documentación con Quarto.</span><span lang="en">Grafana dashboards served in kiosk mode (Node.js + Docker) and documentation built with Quarto.</span></li>
+            </ul>
+            <ul class="chips"><li>Python</li><li>Jupyter</li><li>Grafana</li><li>Docker</li><li>Quarto</li></ul>
+            <div class="links"><span class="private"><svg><use href="#i-lock"/></svg><span lang="es">Código privado</span><span lang="en">Private code</span></span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">02</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2></div>
+      <div class="timeline">
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
+            <span class="when">03/2025 – 05/2025</span>
+          </div>
+          <p class="where">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
+          <ul class="points">
+            <li><span lang="es">Integración de estándares sanitarios HL7 y FHIR: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">Healthcare standards integration: parsing HL7 messages and mapping them to FHIR resources with HAPI FHIR in Spring Boot.</span></li>
+            <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en Spring Boot y en Quarkus.</span><span lang="en">REST APIs with XML responses and basic authentication, in both Spring Boot and Quarkus.</span></li>
+            <li><span lang="es">Migración de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en">Migration of a proxy service from Open Liberty to Quarkus.</span></li>
+            <li><span lang="es">Dos aplicaciones CRUD full stack con Quarkus, Angular y MySQL, con filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two full-stack CRUD applications with Quarkus, Angular and MySQL, including filtering, sorting, pagination and detail views.</span></li>
+            <li><span lang="es">Pruebas unitarias con JUnit y Mockito; contenerización del frontend (Angular + Nginx) y del backend (Quarkus) con Docker.</span><span lang="en">Unit tests with JUnit and Mockito; containerized the frontend (Angular + Nginx) and the backend (Quarkus) with Docker.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="formacion">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">03</span><h2><span lang="es">Formación</span><span lang="en">Education</span></h2></div>
+      <div class="two">
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Máster en Ingeniería Informática</span><span lang="en">MSc in Computer Engineering</span></h3>
+            <span class="when"><span lang="es">2025 – actualidad</span><span lang="en">2025 – present</span></span>
+          </div>
+          <p class="where"><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga</span><span lang="en">Data Engineering specialization · University of Málaga</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Grado en Ingeniería Informática</span><span lang="en">BSc in Computer Engineering</span></h3>
+            <span class="when">2021 – 2025</span>
+          </div>
+          <p class="where"><span lang="es">Universidad de Málaga</span><span lang="en">University of Málaga</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Certificado de Extensión Universitaria en Ciberseguridad</span><span lang="en">University Extension Certificate in Cybersecurity</span></h3>
+          </div>
+          <p class="where"><span lang="es">Diploma</span><span lang="en">Diploma</span></p>
+        </article>
+        <article class="card item">
+          <div class="item-head">
+            <h3><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
+          </div>
+          <p class="where"><span lang="es">Español (nativo) · Inglés (B1), con buena comprensión lectora de documentación técnica</span><span lang="en">Spanish (native) · English (B1), comfortable reading technical documentation</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="competencias">
+    <div class="wrap">
+      <div class="sec-head"><span class="num">04</span><h2><span lang="es">Competencias técnicas</span><span lang="en">Technical skills</span></h2></div>
+      <div class="skills">
+        <div class="card skill"><h3><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3><ul class="chips"><li>Java</li><li>Python</li><li>R</li><li>SQL</li><li>TypeScript</li><li>Kotlin</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="chips"><li>Pandas</li><li>Scikit-learn</li><li>Plotly</li><li>ggplot2</li><li>dplyr</li><li>Grafana</li></ul></div>
+        <div class="card skill"><h3>Frameworks</h3><ul class="chips"><li>Spring Boot</li><li>Quarkus</li><li>Angular</li><li>Next.js</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Bases de datos</span><span lang="en">Databases</span></h3><ul class="chips"><li>MySQL</li><li>MongoDB</li><li>Supabase</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Herramientas</span><span lang="en">Tools</span></h3><ul class="chips"><li>Docker</li><li>Nginx</li><li>Git</li><li>JUnit</li><li>Mockito</li></ul></div>
+        <div class="card skill"><h3><span lang="es">Sanidad y cloud</span><span lang="en">Healthcare &amp; cloud</span></h3><ul class="chips"><li>HL7</li><li>FHIR</li><li>GCP</li><li>AWS</li><li>Azure</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="card contact">
+        <h2><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></h2>
+        <p><span lang="es">¿Tienes una propuesta o quieres saber más de algún proyecto? Escríbeme.</span><span lang="en">Have an offer or want to know more about a project? Drop me a line.</span></p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:alvaro31032003@gmail.com"><svg><use href="#i-mail"/></svg>alvaro31032003@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
+          <a class="btn" href="https://github.com/xAllow" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Álvaro Luque Torres</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var titles = { es: "Álvaro Luque Torres · Ingeniero informático", en: "Álvaro Luque Torres · Software engineer" };
+  function setLang(lang) {
+    root.lang = lang;
+    document.title = titles[lang];
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var browser = (navigator.language || "es").slice(0, 2) === "es" ? "es" : "en";
+  setLang(saved === "es" || saved === "en" ? saved : browser);
+  document.getElementById("lang-btn").addEventListener("click", function () {
+    setLang(root.lang === "es" ? "en" : "es");
+  });
+})();
+</script>
+</body>
+</html>
