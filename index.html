@@ -9,535 +9,375 @@
 <meta property="og:description" content="Ingeniero informático · Ingeniería de datos · Ciberseguridad (GRC). CV y proyectos.">
 <meta property="og:image" content="https://xallow.github.io/img/jungle-clear-tracker.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2314b8a6'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='white'%3EAL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23161616'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='32' font-style='italic' text-anchor='middle' fill='%23f2efe8'%3EAL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Barlow+Condensed:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Barlow+Condensed:ital,wght@1,800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --surface-2: #eef1f6;
-  --border: #e2e6ee;
-  --text: #121620;
-  --muted: #5a6475;
-  --teal: #0d9488;
-  --violet: #7c3aed;
-  --amber: #d97706;
-  --coral: #e11d48;
-  --blue: #2563eb;
-  --green: #059669;
-  --pink: #db2777;
-  --sky: #0284c7;
-  --shadow: 0 1px 2px rgba(16, 24, 40, .05), 0 10px 30px rgba(16, 24, 40, .08);
-  --radius: 18px;
+  --bg: #f4f1ea;
+  --paper: #fbf9f4;
+  --ink: #161616;
+  --muted: #5f5b53;
+  --faint: #8d877c;
+  --rule: #d9d3c6;
+  --teal: #0f766e;
+  --violet: #6d28d9;
+  --coral: #c2410c;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-  --blob-opacity: .35;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #090b10;
-    --surface: #11141b;
-    --surface-2: #181c25;
-    --border: #232835;
-    --text: #eceef3;
-    --muted: #9aa3b4;
-    --teal: #2dd4bf;
-    --violet: #a78bfa;
-    --amber: #fbbf24;
-    --coral: #fb7185;
-    --blue: #60a5fa;
-    --green: #34d399;
-    --pink: #f472b6;
-    --sky: #38bdf8;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 30px rgba(0, 0, 0, .35);
-    --blob-opacity: .28;
+    --bg: #121211; --paper: #1a1a18; --ink: #ecE8df; --muted: #a8a294; --faint: #7a7569; --rule: #2e2d29;
+    --teal: #5eead4; --violet: #c4b5fd; --coral: #fb923c;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #090b10; --surface: #11141b; --surface-2: #181c25; --border: #232835; --text: #eceef3; --muted: #9aa3b4;
-  --teal: #2dd4bf; --violet: #a78bfa; --amber: #fbbf24; --coral: #fb7185; --blue: #60a5fa; --green: #34d399; --pink: #f472b6; --sky: #38bdf8;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 30px rgba(0, 0, 0, .35); --blob-opacity: .28; color-scheme: dark;
+  --bg: #121211; --paper: #1a1a18; --ink: #ece8df; --muted: #a8a294; --faint: #7a7569; --rule: #2e2d29;
+  --teal: #5eead4; --violet: #c4b5fd; --coral: #fb923c;
+  color-scheme: dark;
 }
 
 /* Language: every bilingual text exists twice; only the active language is shown. */
 html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 body {
-  margin: 0; background: var(--bg); color: var(--text);
-  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16.5px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
 img { max-width: 100%; display: block; }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-@media (min-width: 720px) { .wrap { padding: 0 32px; } }
-.grad-text {
-  background: linear-gradient(100deg, var(--teal), var(--violet) 55%, var(--coral));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 720px) { .wrap { padding: 0 40px; } }
 
 /* Header */
-header {
-  position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);
-}
-.bar { display: flex; align-items: center; gap: 16px; height: 62px; }
-.logo { font-weight: 800; text-decoration: none; letter-spacing: -.02em; font-size: 18px; }
-nav { display: flex; gap: 2px; margin-left: auto; }
-nav a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; padding: 6px 10px; border-radius: 8px; }
-nav a:hover { color: var(--text); background: var(--surface-2); }
-nav a .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; background: var(--c); }
+header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--rule); }
+.bar { display: flex; align-items: center; gap: 18px; height: 58px; }
+.logo { font: italic 24px/1 var(--serif); text-decoration: none; }
+nav { display: flex; gap: 22px; margin-left: auto; }
+nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
+nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 780px) { nav { display: none; } .tools { margin-left: auto; } }
-.tools { display: flex; gap: 6px; }
-.pill-btn {
-  font: 600 12px/1 var(--mono); color: var(--muted); background: var(--surface);
-  border: 1px solid var(--border); border-radius: 9px; padding: 8px 10px; cursor: pointer;
-}
-.pill-btn:hover { color: var(--text); }
-.pill-btn b { color: var(--teal); font-weight: 700; }
-.pill-btn.summoner { text-decoration: none; color: #c8aa6e; border-color: #785a28; background: #0a1428; }
-.pill-btn.summoner:hover { color: #f0e6d2; }
-@media (max-width: 420px) { .pill-btn.summoner span { display: none !important; } }
+.tools { display: flex; gap: 8px; align-items: center; }
+.tbtn { font: 500 12px/1 var(--mono); color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: 7px 9px; cursor: pointer; text-decoration: none; }
+.tbtn:hover { color: var(--ink); border-color: var(--ink); }
+.tbtn b { color: var(--ink); font-weight: 700; }
+.tbtn.summoner { color: #c8aa6e; border-color: #785a28; background: #0a1428; }
+.tbtn.summoner:hover { color: #f0e6d2; }
+@media (max-width: 420px) { .tbtn.summoner span { display: none !important; } }
 
 /* Hero */
-.hero-zone { position: relative; isolation: isolate; overflow: hidden; }
-.blobs { position: absolute; inset: -20% -10% 0; z-index: -1; pointer-events: none; }
-.blob { position: absolute; width: 520px; height: 520px; border-radius: 50%; filter: blur(70px); opacity: var(--blob-opacity); animation: drift 22s ease-in-out infinite alternate; }
-.blob.b1 { background: var(--teal); left: -6%; top: 0; }
-.blob.b2 { background: var(--violet); right: -4%; top: 6%; animation-delay: -7s; }
-.blob.b3 { background: var(--amber); left: 38%; top: 40%; width: 420px; height: 420px; animation-delay: -13s; }
-@keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(40px, 30px) scale(1.12); } }
-.grid-bg {
-  position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 44px 44px; opacity: .45;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent 75%);
-}
-.hero { padding-top: 72px; padding-bottom: 60px; }
-.pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.kicker {
-  display: inline-flex; align-items: center; gap: 8px; font: 500 13px/1 var(--mono);
-  padding: 8px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
-  color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent);
-}
-.kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
-.kicker.live::before { animation: pulse 1.8s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 60%, transparent); } 50% { box-shadow: 0 0 0 6px transparent; } }
-h1 { font-size: clamp(42px, 8vw, 76px); line-height: 1.02; letter-spacing: -.045em; margin: 22px 0 16px; font-weight: 800; }
-.role { font-size: clamp(18px, 2.6vw, 23px); margin: 0 0 20px; font-weight: 600; color: var(--muted); }
-.role .r1 { color: var(--teal); } .role .r2 { color: var(--violet); } .role .r3 { color: var(--coral); }
-.pitch { max-width: 700px; font-size: 17.5px; margin: 0 0 30px; }
-.pitch strong { font-weight: 650; background: linear-gradient(transparent 62%, color-mix(in srgb, var(--c) 30%, transparent) 62%); }
-.cta { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 15px;
-  padding: 12px 17px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface);
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-}
-.btn:hover { transform: translateY(-2px); border-color: var(--violet); }
-.btn.primary { color: #fff; border: 0; background: linear-gradient(100deg, #0d9488, #7c3aed); box-shadow: 0 8px 24px -8px rgba(124, 58, 237, .6); }
-.btn svg { width: 18px; height: 18px; flex: none; }
-.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 40px; }
-@media (min-width: 860px) { .stats { grid-template-columns: repeat(4, 1fr); } }
-.stat {
-  padding: 16px 18px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 80%, transparent);
-  border: 1px solid var(--border); backdrop-filter: blur(6px); position: relative; overflow: hidden;
-}
-.stat::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--c); }
-.stat b { display: block; font-size: 30px; line-height: 1.1; letter-spacing: -.03em; color: var(--c); font-weight: 800; }
-.stat span { color: var(--muted); font-size: 14px; }
-.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 24px; color: var(--muted); font-size: 14px; }
-.facts span { display: inline-flex; align-items: center; gap: 7px; }
-.facts svg { width: 16px; height: 16px; }
+.hero { padding-top: 76px; padding-bottom: 24px; }
+.status { font: 500 13px/1 var(--mono); color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.status .now { color: var(--coral); }
+.status .now::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); margin-right: 8px; vertical-align: 1px; }
+h1 { font: 400 clamp(54px, 10vw, 112px)/.95 var(--serif); letter-spacing: -.02em; margin: 26px 0 22px; }
+h1 em { font-style: italic; }
+.role { font-size: clamp(19px, 2.4vw, 23px); line-height: 1.45; margin: 0 0 22px; max-width: 820px; }
+.role .t { color: var(--teal); font-weight: 600; } .role .v { color: var(--violet); font-weight: 600; } .role .c { color: var(--coral); font-weight: 600; }
+.pitch { max-width: 660px; color: var(--muted); margin: 0 0 30px; }
+.pitch b { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px 26px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 18px; border-radius: 6px; }
+.btn:hover { opacity: .88; }
+.tlink { font-weight: 500; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 5px; text-decoration-thickness: 2px; }
+.tlink:hover { text-decoration-color: var(--ink); }
+.figures { display: flex; flex-wrap: wrap; margin-top: 48px; border-top: 1px solid var(--rule); }
+.figures div { flex: 1 1 200px; padding: 18px 22px 4px 0; }
+.figures div + div { padding-left: 22px; border-left: 1px solid var(--rule); }
+@media (max-width: 640px) { .figures div + div { border-left: 0; padding-left: 0; } }
+.figures b { display: block; font: 400 46px/1 var(--serif); }
+.figures span { color: var(--muted); font-size: 14px; }
 
 /* Sections */
-section { padding: 56px 0; }
-.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
-.sec-head .num {
-  font: 700 13px/1 var(--mono); color: #fff; background: var(--c); padding: 7px 9px; border-radius: 8px;
-  box-shadow: 0 6px 18px -6px var(--c);
-}
-h2 { font-size: 30px; letter-spacing: -.025em; margin: 0; font-weight: 800; }
-.sec-head::after { content: ""; flex: 1; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--c), transparent); opacity: .5; }
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+section { padding: 64px 0 24px; }
+.sec { display: grid; gap: 8px 40px; }
+@media (min-width: 860px) { .sec { grid-template-columns: 220px 1fr; } }
+.sec-title { margin: 0 0 18px; }
+.sec-title .n { font: 500 13px var(--mono); color: var(--faint); display: block; margin-bottom: 6px; }
+.sec-title h2 { font: 400 40px/1 var(--serif); margin: 0; }
+@media (min-width: 860px) { .sec-title { position: sticky; top: 90px; align-self: start; } }
 
-/* Experience */
-.item { padding: 24px; position: relative; overflow: hidden; }
-.item.accent::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: linear-gradient(180deg, var(--violet), var(--teal)); }
-.item-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; align-items: center; }
-.org { display: flex; gap: 14px; align-items: center; }
-.org .logo-box {
-  width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; flex: none;
-  font-weight: 800; font-size: 20px; color: #fff; background: linear-gradient(135deg, var(--violet), var(--teal));
-}
-.item h3 { margin: 0; font-size: 18px; }
-.when { font: 600 13px var(--mono); color: var(--c, var(--violet)); white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: color-mix(in srgb, var(--c, var(--violet)) 12%, transparent); }
-.where { color: var(--muted); margin: 2px 0 0; font-size: 15px; }
-.points { margin: 16px 0 0; padding: 0; list-style: none; font-size: 15.5px; }
-.points li { position: relative; padding-left: 20px; margin: 7px 0; color: var(--muted); }
-.points li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 2px; background: var(--c, var(--violet)); transform: rotate(45deg); }
-.hl { color: var(--text); font-weight: 600; background: color-mix(in srgb, var(--c, var(--violet)) 14%, transparent); padding: 0 5px; border-radius: 5px; }
-.next {
-  margin-top: 16px; padding: 18px 22px; display: flex; gap: 14px; align-items: center;
-  border: 1px dashed color-mix(in srgb, var(--coral) 55%, transparent); background: color-mix(in srgb, var(--coral) 7%, var(--surface));
-}
-.next .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--coral); color: #fff; flex: none; }
-.next .ico svg { width: 22px; height: 22px; }
-.next b { display: block; }
-.next span { color: var(--muted); font-size: 15px; }
+/* Rows: experience, education, skills */
+.rows { border-top: 1px solid var(--ink); }
+.row { display: grid; gap: 4px 28px; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+@media (min-width: 640px) { .row { grid-template-columns: 150px 1fr; } }
+.row .left { font: 500 13px/1.6 var(--mono); color: var(--faint); padding-top: 3px; }
+.row h3 { font-size: 18px; margin: 0; font-weight: 600; letter-spacing: -.01em; }
+.row .sub { color: var(--muted); margin: 2px 0 0; }
+.row ul { margin: 14px 0 0; padding: 0 0 0 18px; color: var(--muted); }
+.row li { margin: 6px 0; padding-left: 4px; }
+.row li::marker { color: var(--violet); }
+.row li b { color: var(--ink); font-weight: 600; }
+.row .note { color: var(--coral); }
+.row.upcoming h3::after { content: "próximamente"; font: 500 11px/1 var(--mono); color: var(--coral); border: 1px solid var(--coral); border-radius: 4px; padding: 3px 6px; margin-left: 10px; vertical-align: 3px; }
+html[lang="en"] .row.upcoming h3::after { content: "coming up"; }
+.skills .row { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .skills .row { grid-template-columns: 190px 1fr; } }
+.skills .left { color: var(--ink); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; font-size: 12px; }
+.skills .left::before { content: "■ "; color: var(--k); }
+.skills p { margin: 0; }
+.skills .learn { color: var(--faint); font-style: italic; }
+.skills .learn::before { content: " · "; font-style: normal; }
+.skills .learn.only::before { content: none; }
+.skills .legend { color: var(--faint); font-size: 13.5px; font-style: italic; margin: 12px 0 0; }
 
-/* Education */
-.two { display: grid; gap: 16px; }
-@media (min-width: 720px) { .two { grid-template-columns: 1fr 1fr; } }
-.edu { display: flex; gap: 16px; align-items: flex-start; padding: 22px; }
-.edu .ico { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; flex: none; color: #fff; background: var(--c); box-shadow: 0 8px 20px -10px var(--c); }
-.edu .ico svg { width: 24px; height: 24px; }
-.edu h3 { margin: 0 0 2px; font-size: 17px; }
-.edu .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
-.badge { font: 600 12px/1 var(--mono); padding: 6px 9px; border-radius: 7px; color: var(--c); background: color-mix(in srgb, var(--c) 13%, transparent); }
-.badge.live::before { content: "● "; animation: blink 1.6s steps(2) infinite; }
-@keyframes blink { 50% { opacity: .3; } }
-
-/* Skills */
-.skills { display: grid; gap: 16px; }
-@media (min-width: 640px) { .skills { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 980px) { .skills { grid-template-columns: repeat(4, 1fr); } }
-.skill { padding: 20px; border-top: 3px solid var(--c); }
-.skill h3 { font-size: 13px; margin: 0 0 14px; color: var(--c); font-weight: 700; text-transform: uppercase; letter-spacing: .07em; display: flex; align-items: center; gap: 8px; }
-.skill h3::before { content: ""; width: 9px; height: 9px; border-radius: 3px; background: var(--c); }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.skill .chips li {
-  font: 500 13px/1 var(--mono); padding: 7px 9px; border-radius: 8px;
-  color: var(--text); background: color-mix(in srgb, var(--c) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
-}
-.skill .chips li.learning { border-style: dashed; color: var(--muted); background: transparent; }
-.legend { color: var(--muted); font-size: 13.5px; margin: 14px 2px 0; display: flex; gap: 18px; flex-wrap: wrap; }
-.legend i { display: inline-block; width: 22px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--muted); }
-.legend i.d { border-style: dashed; }
-
-/* Projects: shared skeleton; every card then gets its own personality */
-.projects { display: grid; gap: 22px; }
+/* Projects: same skeleton, then each card gets its own look. Flat colours only. */
+.projects { display: grid; gap: 24px; }
 @media (min-width: 760px) { .projects { grid-template-columns: 1fr 1fr; } }
 .project {
-  --p-bg: var(--surface); --p-text: var(--text); --p-muted: var(--muted); --p-accent: var(--teal); --p-line: var(--border);
-  --p-chip: var(--surface-2); --p-font: inherit;
+  --p-bg: var(--paper); --p-text: var(--ink); --p-muted: var(--muted); --p-accent: var(--ink); --p-line: var(--rule);
+  --p-font: inherit; --p-on: var(--bg);
   display: flex; flex-direction: column; overflow: hidden; position: relative;
-  background: var(--p-bg); color: var(--p-text); border: 1px solid var(--p-line); border-radius: var(--radius);
-  box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease;
+  background: var(--p-bg); color: var(--p-text); border: 1px solid var(--p-line); border-radius: 8px;
 }
-.project:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -16px var(--p-glow, rgba(0, 0, 0, .4)); }
-.project .shot { aspect-ratio: 16 / 9; overflow: hidden; position: relative; background: #000; }
-.project .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s ease; }
-.project:hover .shot img { transform: scale(1.04); }
+.project .shot { aspect-ratio: 16 / 9; overflow: hidden; background: #000; position: relative; }
+.project .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .project .body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
-.tag { font: 600 11.5px/1 var(--mono); color: var(--p-accent); text-transform: uppercase; letter-spacing: .1em; }
-.project h3 { font-family: var(--p-font); margin: 10px 0 10px; font-size: 24px; line-height: 1.15; }
-.project p { margin: 0 0 14px; color: var(--p-muted); }
-.project .points li { color: var(--p-muted); }
-.project .points li::before { background: var(--p-accent); }
-.project .chips { margin: 0 0 18px; }
-.project .chips li { font: 500 12.5px/1 var(--mono); padding: 7px 9px; border-radius: 8px; background: var(--p-chip); border: 1px solid var(--p-line); color: var(--p-text); }
-.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-.links a, .links .private {
-  display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; text-decoration: none;
-  padding: 9px 14px; border-radius: 10px; border: 1px solid var(--p-line); color: var(--p-text);
-}
-.links a.main { background: var(--p-accent); border-color: var(--p-accent); color: var(--p-on, #000); }
-.links a:hover { filter: brightness(1.1); }
-.links .private { color: var(--p-muted); font-weight: 500; }
-.links svg { width: 15px; height: 15px; }
-.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 16px; }
-.kpis div { padding: 10px 12px; border-radius: 10px; background: var(--p-chip); border: 1px solid var(--p-line); }
-.kpis b { display: block; font: 700 19px/1.15 var(--mono); color: var(--k, var(--p-accent)); }
-.kpis span { font-size: 12px; color: var(--p-muted); }
+.tag { font: 500 12px/1 var(--mono); color: var(--p-accent); text-transform: uppercase; letter-spacing: .08em; }
+.project h3 { font-family: var(--p-font); margin: 12px 0 10px; font-size: 26px; line-height: 1.1; }
+.project p { margin: 0 0 12px; color: var(--p-muted); }
+.project ul.pts { margin: 0 0 14px; padding-left: 18px; color: var(--p-muted); }
+.project ul.pts li { margin: 5px 0; }
+.project ul.pts li::marker { color: var(--p-accent); }
+.stack { font: 500 13px/1.6 var(--mono); color: var(--p-muted); margin: 0 0 18px; }
+.stack b { color: var(--p-text); font-weight: 500; }
+.links { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; margin-top: auto; }
+.links a { font-weight: 600; font-size: 14.5px; text-decoration: none; color: var(--p-text); }
+.links a.main { background: var(--p-accent); color: var(--p-on); padding: 9px 15px; border-radius: 5px; }
+.links a:not(.main) { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--p-line); }
+.links .private { font: 500 13px var(--mono); color: var(--p-muted); }
+.kpis { display: flex; gap: 22px; margin: 0 0 14px; }
+.kpis b { display: block; font: 700 22px/1.1 var(--mono); color: var(--k, var(--p-accent)); }
+.kpis span { font-size: 12.5px; color: var(--p-muted); }
 
-/* 1 · Jungle Clear Tracker: Hextech client */
+/* Jungle Clear Tracker: League client */
 .p-lol {
-  --p-bg: linear-gradient(165deg, #0a1428 0%, #091428 55%, #0a323c 130%);
-  --p-text: #f0e6d2; --p-muted: #a09b8c; --p-accent: #c8aa6e; --p-line: #463714; --p-chip: rgba(200, 170, 110, .08);
-  --p-font: "Cinzel", Georgia, serif; --p-on: #010a13; --p-glow: rgba(200, 170, 110, .45);
-  border: 1px solid #785a28; border-radius: 4px;
-  clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+  --p-bg: #0a1428; --p-text: #f0e6d2; --p-muted: #a09b8c; --p-accent: #c8aa6e; --p-line: #463714;
+  --p-font: "Cinzel", Georgia, serif; --p-on: #010a13;
+  border: 1px solid #785a28; border-radius: 0; margin-bottom: 24px;
+  clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
 }
-.p-lol::after { /* inner gold hairline, like the client frames */
-  content: ""; position: absolute; inset: 7px; pointer-events: none; border: 1px solid rgba(200, 170, 110, .25);
-  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
-}
-.featured { display: grid; margin-bottom: 22px; }
-@media (min-width: 900px) { .featured { grid-template-columns: 1.05fr 1fr; } }
-.p-lol .shot { aspect-ratio: auto; display: grid; place-items: center; padding: 28px; background: radial-gradient(circle at 50% 45%, #0a323c, #010a13 70%); }
-.p-lol .shot img { width: 100%; max-width: 460px; height: auto; border: 2px solid #785a28; box-shadow: 0 0 0 6px #010a13, 0 0 0 7px #463714, 0 0 40px rgba(10, 200, 185, .25); object-fit: contain; }
-.p-lol h3 { font-size: 30px; letter-spacing: .02em; background: linear-gradient(180deg, #f0e6d2, #c8aa6e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@media (min-width: 900px) { .p-lol { display: grid; grid-template-columns: 1fr 1fr; } }
+.p-lol .shot { aspect-ratio: auto; display: grid; place-items: center; padding: 30px; background: #010a13; border-right: 1px solid #463714; }
+.p-lol .shot img { max-width: 440px; height: auto; object-fit: contain; outline: 1px solid #785a28; outline-offset: 6px; }
+.p-lol h3 { color: #c8aa6e; font-size: 30px; letter-spacing: .03em; }
 .p-lol .tag { color: #0ac8b9; }
-.p-lol .points li::before { background: #c8aa6e; transform: rotate(45deg); border-radius: 0; }
-.p-lol .links a.main { background: linear-gradient(180deg, #c8aa6e, #a0814a); border-color: #c8aa6e; border-radius: 2px; }
-.p-lol .links a:not(.main) { border-radius: 2px; border-color: #0ac8b9; color: #0ac8b9; }
-.p-lol .divider { height: 1px; margin: 4px 0 16px; background: linear-gradient(90deg, transparent, #c8aa6e, transparent); position: relative; }
-.p-lol .divider::after { content: ""; position: absolute; left: 50%; top: -4px; width: 8px; height: 8px; background: #c8aa6e; transform: translateX(-50%) rotate(45deg); }
+.p-lol .rule { height: 1px; background: #785a28; margin: 2px 0 16px; position: relative; }
+.p-lol .rule::after { content: ""; position: absolute; left: 0; top: -3px; width: 7px; height: 7px; background: #c8aa6e; transform: rotate(45deg); }
+.p-lol ul.pts { list-style: none; padding-left: 0; }
+.p-lol ul.pts li { padding-left: 18px; position: relative; }
+.p-lol ul.pts li::before { content: ""; position: absolute; left: 1px; top: .6em; width: 6px; height: 6px; background: #c8aa6e; transform: rotate(45deg); }
+.p-lol .links a.main { border-radius: 0; }
+.p-lol .links a:not(.main) { color: #0ac8b9; text-decoration-color: #0a5a5a; }
 
-/* 2 · Panel de vida: analytics dashboard */
-.p-panel {
-  --p-bg: #0b0f14; --p-text: #e5e7eb; --p-muted: #94a3b8; --p-accent: #22c55e; --p-line: #1f2937; --p-chip: #111827;
-  --p-on: #052e16; --p-glow: rgba(34, 197, 94, .35);
-}
-.p-panel h3 { font-weight: 800; letter-spacing: -.02em; display: flex; align-items: center; gap: 10px; }
-.live-pill { font: 700 10px/1 var(--mono); color: #22c55e; border: 1px solid #14532d; background: #052e16; padding: 5px 7px; border-radius: 6px; letter-spacing: .08em; }
-.live-pill::before { content: "● "; animation: blink 1.4s steps(2) infinite; }
-.p-panel .shot::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; background: linear-gradient(transparent, #0b0f14); }
+/* Panel de vida: dashboard */
+.p-panel { --p-bg: #0d1117; --p-text: #e6edf3; --p-muted: #8b949e; --p-accent: #3fb950; --p-line: #21262d; --p-on: #04260f; }
+.p-panel h3 { font-weight: 700; letter-spacing: -.02em; }
+.p-panel .live { font: 700 10px/1 var(--mono); color: #3fb950; border: 1px solid #238636; border-radius: 4px; padding: 4px 6px; margin-left: 8px; vertical-align: 5px; letter-spacing: .08em; }
 
-/* 3 · Traze: sporty */
-.p-traze {
-  --p-bg: #0f0f12; --p-text: #fafafa; --p-muted: #a1a1aa; --p-accent: #fc4c02; --p-line: #27272a; --p-chip: #18181b;
-  --p-font: "Barlow Condensed", Impact, sans-serif; --p-on: #fff; --p-glow: rgba(252, 76, 2, .4);
-}
-.p-traze::before { content: ""; position: absolute; inset: 0 0 auto; height: 5px; z-index: 1; background: linear-gradient(90deg, #fc4c02, #ff2d75, #7c3aed); }
-.p-traze .shot { background: radial-gradient(circle at 30% 20%, #2a1206, #0f0f12 70%); padding: 14px; }
+/* Traze: sport */
+.p-traze { --p-bg: #111111; --p-text: #fafafa; --p-muted: #a3a3a3; --p-accent: #fc4c02; --p-line: #262626; --p-font: "Barlow Condensed", Impact, sans-serif; --p-on: #ffffff; border-top: 6px solid #fc4c02; }
+.p-traze .shot { background: #111111; padding: 14px; }
 .p-traze .shot img { object-fit: contain; object-position: center; }
-.p-traze h3 { font-style: italic; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: .01em; line-height: .95; background: linear-gradient(90deg, #fc4c02, #ff2d75 55%, #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.p-traze .tag { color: #ff6a2b; }
-.p-traze .chips li { border-radius: 999px; }
-.p-traze .links .private { border-radius: 999px; }
+.p-traze h3 { font-style: italic; font-weight: 800; font-size: 44px; text-transform: uppercase; color: #fc4c02; line-height: .9; }
+.p-traze .links a.main { border-radius: 999px; }
 
-/* 4 · Montilla Pasión Go: Holy Week */
-.p-montilla {
-  --p-bg: radial-gradient(120% 90% at 50% 0%, #34143f 0%, #1c0a24 55%, #12061a 100%);
-  --p-text: #f3e9d2; --p-muted: #c9b8c9; --p-accent: #d4af6a; --p-line: #4a2a52; --p-chip: rgba(212, 175, 106, .08);
-  --p-font: "Cormorant Garamond", Georgia, serif; --p-on: #1c0a24; --p-glow: rgba(212, 175, 106, .35);
-}
-.p-montilla .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, #1c0a24); }
-.p-montilla h3 { font-style: italic; font-weight: 700; font-size: 34px; color: #f3e9d2; }
-.p-montilla h3 em { color: #d4af6a; font-style: italic; }
-.p-montilla .tag { color: #d4af6a; letter-spacing: .18em; }
-.p-montilla .ornament { display: flex; align-items: center; gap: 10px; color: #d4af6a; margin: -2px 0 14px; font-size: 13px; }
-.p-montilla .ornament::before, .p-montilla .ornament::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d4af6a); }
-.p-montilla .ornament::after { background: linear-gradient(90deg, #d4af6a, transparent); }
-.p-montilla .chips li { background: transparent; border-color: rgba(212, 175, 106, .4); }
-.p-montilla .points li::before { background: #d4af6a; border-radius: 50%; transform: none; }
+/* Montilla Pasión Go: Holy Week */
+.p-montilla { --p-bg: #1d0b26; --p-text: #f3e9d2; --p-muted: #c7b6c4; --p-accent: #d4af6a; --p-line: #3d2048; --p-font: "Cormorant Garamond", Georgia, serif; --p-on: #1d0b26; }
+.p-montilla h3 { font-style: italic; font-weight: 700; font-size: 36px; }
+.p-montilla h3 em { color: #d4af6a; }
+.p-montilla .tag { letter-spacing: .2em; }
+.p-montilla .orn { color: #d4af6a; text-align: center; margin: -4px 0 12px; letter-spacing: .6em; font-size: 12px; }
+.p-montilla ul.pts li::marker { content: "✦  "; font-size: 11px; }
 .p-montilla .links a.main { border-radius: 999px; }
 
-/* 5 · TFG: Grafana-like */
-.p-tfg {
-  --p-bg: #111217; --p-text: #d8d9da; --p-muted: #8e8e93; --p-accent: #f46800; --p-line: #26272e; --p-chip: #181b1f;
-  --p-font: var(--mono); --p-on: #fff; --p-glow: rgba(244, 104, 0, .35);
-}
-.p-tfg::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; z-index: 1; background: linear-gradient(90deg, #f46800, #fbca0a); }
+/* TFG: Grafana */
+.p-tfg { --p-bg: #111217; --p-text: #d8d9da; --p-muted: #8e8e93; --p-accent: #f46800; --p-line: #24252b; --p-font: var(--mono); --p-on: #ffffff; border-top: 4px solid #f46800; }
 .p-tfg h3 { font-weight: 700; font-size: 21px; }
 .p-tfg h3::before { content: "> "; color: #f46800; }
 .p-tfg .tag { color: #fbca0a; }
-.tfg-art { height: 100%; padding: 18px; display: grid; grid-template-rows: auto 1fr; gap: 12px; background: #0b0c0e; }
-.tfg-art .panel-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.tfg-art .mini { background: #181b1f; border: 1px solid #26272e; border-radius: 6px; padding: 8px 10px; }
+.tfg-art { height: 100%; padding: 16px; background: #0b0c0e; display: grid; grid-template-rows: auto 1fr; gap: 10px; }
+.tfg-art .row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tfg-art .mini { background: #181b1f; border: 1px solid #24252b; border-radius: 3px; padding: 7px 9px; }
 .tfg-art .mini span { font: 500 10px var(--mono); color: #8e8e93; display: block; }
-.tfg-art .mini b { font: 700 18px var(--mono); }
-.tfg-art .chart { background: #181b1f; border: 1px solid #26272e; border-radius: 6px; padding: 8px; }
+.tfg-art .mini b { font: 700 17px var(--mono); }
+.tfg-art .chart { background: #181b1f; border: 1px solid #24252b; border-radius: 3px; padding: 8px; }
 .tfg-art svg { width: 100%; height: 100%; display: block; }
 
 /* Contact */
-.contact { padding: 40px 28px; text-align: center; position: relative; overflow: hidden; isolation: isolate; }
-.contact::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .16; background: radial-gradient(circle at 15% 20%, var(--teal), transparent 45%), radial-gradient(circle at 85% 80%, var(--violet), transparent 45%), radial-gradient(circle at 60% 10%, var(--amber), transparent 35%); }
-.contact h2 { margin-bottom: 10px; font-size: 34px; }
-.contact p { color: var(--muted); margin: 0 auto 24px; max-width: 540px; }
-.contact .cta { justify-content: center; }
-footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align: center; }
-
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+.contact { padding: 72px 0 40px; border-top: 1px solid var(--rule); margin-top: 48px; }
+.contact h2 { font: 400 clamp(44px, 7vw, 76px)/1 var(--serif); margin: 0 0 16px; }
+.contact h2 em { font-style: italic; }
+.contact p { color: var(--muted); margin: 0 0 26px; max-width: 520px; }
+.mail { font: 400 clamp(24px, 3.6vw, 36px)/1.2 var(--serif); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px; word-break: break-all; }
+.contact .cta { margin-top: 26px; }
+footer { padding: 30px 0 46px; color: var(--faint); font-size: 13px; }
 </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></symbol>
-  <symbol id="i-gh" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
-  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></symbol>
-  <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
-  <symbol id="i-dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
-  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M8 7h8"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
-</svg>
-
 <header>
   <div class="wrap bar">
-    <a class="logo grad-text" href="#top">Álvaro.</a>
+    <a class="logo" href="#top">Álvaro Luque</a>
     <nav>
-      <a href="#experiencia" style="--c:var(--violet)"><span class="dot"></span><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
-      <a href="#formacion" style="--c:var(--amber)"><span class="dot"></span><span lang="es">Formación</span><span lang="en">Education</span></a>
-      <a href="#competencias" style="--c:var(--teal)"><span class="dot"></span><span lang="es">Competencias</span><span lang="en">Skills</span></a>
-      <a href="#proyectos" style="--c:var(--coral)"><span class="dot"></span><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
-      <a href="#contacto" style="--c:var(--blue)"><span class="dot"></span><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+      <a href="#experiencia"><span lang="es">Experiencia</span><span lang="en">Experience</span></a>
+      <a href="#formacion"><span lang="es">Formación</span><span lang="en">Education</span></a>
+      <a href="#competencias"><span lang="es">Competencias</span><span lang="en">Skills</span></a>
+      <a href="#proyectos"><span lang="es">Proyectos</span><span lang="en">Projects</span></a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
     </nav>
     <div class="tools">
-      <a class="pill-btn summoner" href="invocador.html" title="Modo invocador · Summoner mode">▶ <span lang="es">Modo invocador</span><span lang="en">Summoner mode</span></a>
-      <button class="pill-btn" id="lang-btn" type="button" aria-label="Cambiar idioma / Change language">
-        <span lang="es"><b>ES</b> · EN</span><span lang="en">ES · <b>EN</b></span>
+      <a class="tbtn summoner" href="invocador.html" title="Modo invocador · Summoner mode">▶ <span lang="es">Modo invocador</span><span lang="en">Summoner mode</span></a>
+      <button class="tbtn" id="lang-btn" type="button" aria-label="Cambiar idioma / Change language">
+        <span lang="es"><b>ES</b> / EN</span><span lang="en">ES / <b>EN</b></span>
       </button>
     </div>
   </div>
 </header>
 
 <main id="top">
-  <div class="hero-zone">
-    <div class="blobs" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="wrap hero">
-      <div class="pills">
-        <span class="kicker" style="--c:var(--teal)"><span lang="es">Máster en Ingeniería de Datos · UMA</span><span lang="en">MSc in Data Engineering · University of Málaga</span></span>
-        <span class="kicker live" style="--c:var(--coral)"><span lang="es">Próximamente: prácticas en GRC</span><span lang="en">Coming up: GRC internship</span></span>
-      </div>
-      <h1>Álvaro <span class="grad-text">Luque Torres</span></h1>
-      <p class="role">
-        <span lang="es">Ingeniero informático · <span class="r1">Ingeniería de datos</span> · <span class="r2">Desarrollo de software</span> · <span class="r3">Ciberseguridad (GRC)</span></span>
-        <span lang="en">Software engineer · <span class="r1">Data engineering</span> · <span class="r2">Software development</span> · <span class="r3">Cybersecurity (GRC)</span></span>
-      </p>
-      <p class="pitch">
-        <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en <strong style="--c:var(--teal)">Ingeniería de Datos</strong>. Me interesa sobre todo el tratamiento y análisis de datos, y lo combino con experiencia práctica desarrollando software, en empresa y en proyectos propios: <strong style="--c:var(--violet)">de la ingesta de datos a la app que los usa</strong>. Ahora también me especializo en ciberseguridad desde el lado de <strong style="--c:var(--coral)">GRC</strong> (gobierno, riesgo y cumplimiento), donde voy a hacer prácticas.</span>
-        <span lang="en">Computer Engineering graduate from the University of Málaga, currently studying the Master's degree with a specialization in <strong style="--c:var(--teal)">Data Engineering</strong>. I'm especially interested in processing and analyzing data, and I combine it with hands-on software development, both professionally and in my own projects: <strong style="--c:var(--violet)">from data ingestion to the app that uses it</strong>. I'm now also specializing in cybersecurity from the <strong style="--c:var(--coral)">GRC</strong> side (governance, risk and compliance), where I'm about to start an internship.</span>
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="mailto:alvaro31032003@gmail.com"><svg><use href="#i-mail"/></svg><span lang="es">Escríbeme</span><span lang="en">Email me</span></a>
-        <a class="btn" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
-        <a class="btn" href="https://github.com/xAllow" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
-      </div>
-      <div class="stats">
-        <div class="stat" style="--c:var(--teal)"><b>5</b><span lang="es">proyectos propios</span><span lang="en">personal projects</span></div>
-        <div class="stat" style="--c:var(--violet)"><b>2</b><span lang="es">webs en producción</span><span lang="en">websites in production</span></div>
-        <div class="stat" style="--c:var(--amber)"><b>760+</b><span lang="es">partidas en mi propio ETL</span><span lang="en">games in my own ETL</span></div>
-        <div class="stat" style="--c:var(--coral)"><b>HL7 · FHIR</b><span lang="es">prácticas en software sanitario</span><span lang="en">healthcare software internship</span></div>
-      </div>
-      <div class="facts">
-        <span><svg><use href="#i-pin"/></svg><span lang="es">Málaga, España</span><span lang="en">Málaga, Spain</span></span>
-        <span><svg><use href="#i-cap"/></svg><span lang="es">Grado en Ingeniería Informática (2021–2025)</span><span lang="en">BSc in Computer Engineering (2021–2025)</span></span>
-        <span><svg><use href="#i-lang"/></svg><span lang="es">Español nativo · Inglés B1</span><span lang="en">Spanish (native) · English B1</span></span>
-      </div>
+  <div class="wrap hero">
+    <div class="status">
+      <span>Málaga, <span lang="es">España</span><span lang="en">Spain</span></span>
+      <span lang="es">Máster en Ingeniería de Datos · UMA</span><span lang="en">MSc in Data Engineering · University of Málaga</span>
+      <span class="now"><span lang="es">Próximamente: prácticas en GRC</span><span lang="en">Coming up: GRC internship</span></span>
+    </div>
+    <h1>Álvaro Luque <em>Torres</em></h1>
+    <p class="role">
+      <span lang="es">Ingeniero informático. Trabajo con <span class="t">datos</span>, <span class="v">desarrollo software</span> y me especializo en <span class="c">ciberseguridad (GRC)</span>.</span>
+      <span lang="en">Software engineer. I work with <span class="t">data</span>, <span class="v">build software</span> and I'm specializing in <span class="c">cybersecurity (GRC)</span>.</span>
+    </p>
+    <p class="pitch">
+      <span lang="es">Graduado en Ingeniería Informática por la Universidad de Málaga y cursando el Máster con especialidad en <b>Ingeniería de Datos</b>. Me gusta llevar los datos <b>de la ingesta a la app que los usa</b>, tanto en empresa como en proyectos propios. Ahora además me especializo en <b>gobierno, riesgo y cumplimiento</b>, donde voy a hacer prácticas.</span>
+      <span lang="en">Computer Engineering graduate from the University of Málaga, studying the Master's with a specialization in <b>Data Engineering</b>. I like taking data <b>from ingestion to the app that uses it</b>, professionally and in my own projects. I'm now also specializing in <b>governance, risk and compliance</b>, where I'm about to start an internship.</span>
+    </p>
+    <div class="cta">
+      <a class="btn" href="mailto:alvaro31032003@gmail.com"><span lang="es">Escríbeme</span><span lang="en">Email me</span> →</a>
+      <a class="tlink" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="tlink" href="https://github.com/xAllow" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="figures">
+      <div><b style="color:var(--teal)">5</b><span lang="es">proyectos propios</span><span lang="en">personal projects</span></div>
+      <div><b style="color:var(--violet)">2</b><span lang="es">webs en producción</span><span lang="en">websites in production</span></div>
+      <div><b style="color:var(--coral)">760+</b><span lang="es">partidas en mi propio ETL</span><span lang="en">games in my own ETL</span></div>
     </div>
   </div>
 
   <!-- Experience -->
-  <section id="experiencia" style="--c:var(--violet)">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">01</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2></div>
-      <article class="card item accent">
-        <div class="item-head">
-          <div class="org">
-            <span class="logo-box">D</span>
-            <div>
-              <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
-              <p class="where">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
-            </div>
+  <section id="experiencia">
+    <div class="wrap sec">
+      <div class="sec-title"><span class="n">01</span><h2><span lang="es">Experiencia</span><span lang="en">Experience</span></h2></div>
+      <div class="rows">
+        <div class="row upcoming">
+          <div class="left"><span lang="es">Próximamente</span><span lang="en">Coming up</span></div>
+          <div>
+            <h3><span lang="es">Prácticas en GRC</span><span lang="en">GRC internship</span></h3>
+            <p class="sub"><span lang="es">Gobierno, riesgo y cumplimiento en ciberseguridad: ISO 27001, ENS y RGPD, análisis de riesgos y auditoría.</span><span lang="en">Governance, risk and compliance in cybersecurity: ISO 27001, ENS and GDPR, risk analysis and auditing.</span></p>
           </div>
-          <span class="when">03/2025 – 05/2025</span>
         </div>
-        <ul class="points">
-          <li><span lang="es">Integración de estándares sanitarios <span class="hl">HL7 y FHIR</span>: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">Healthcare standards integration: parsing <span class="hl">HL7</span> messages and mapping them to <span class="hl">FHIR</span> resources with HAPI FHIR in Spring Boot.</span></li>
-          <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en <span class="hl">Spring Boot</span> y en <span class="hl">Quarkus</span>.</span><span lang="en">REST APIs with XML responses and basic authentication, in both <span class="hl">Spring Boot</span> and <span class="hl">Quarkus</span>.</span></li>
-          <li><span lang="es"><span class="hl">Migración</span> de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en"><span class="hl">Migration</span> of a proxy service from Open Liberty to Quarkus.</span></li>
-          <li><span lang="es">Dos aplicaciones CRUD <span class="hl">full stack</span> con Quarkus, Angular y MySQL, con filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two <span class="hl">full-stack</span> CRUD applications with Quarkus, Angular and MySQL, including filtering, sorting, pagination and detail views.</span></li>
-          <li><span lang="es">Pruebas unitarias con JUnit y Mockito; contenerización del frontend (Angular + Nginx) y del backend (Quarkus) con <span class="hl">Docker</span>.</span><span lang="en">Unit tests with JUnit and Mockito; containerized the frontend (Angular + Nginx) and the backend (Quarkus) with <span class="hl">Docker</span>.</span></li>
-        </ul>
-      </article>
-      <div class="card next">
-        <span class="ico"><svg><use href="#i-shield"/></svg></span>
-        <div>
-          <b><span lang="es">Siguiente paso: prácticas en GRC</span><span lang="en">Next step: GRC internship</span></b>
-          <span><span lang="es">Gobierno, riesgo y cumplimiento en ciberseguridad: ISO 27001, ENS y RGPD, análisis de riesgos y auditoría.</span><span lang="en">Governance, risk and compliance in cybersecurity: ISO 27001, ENS and GDPR, risk analysis and auditing.</span></span>
+        <div class="row">
+          <div class="left">03/2025 – 05/2025</div>
+          <div>
+            <h3><span lang="es">Software Engineering Intern (Desarrollo Web)</span><span lang="en">Software Engineering Intern (Web Development)</span></h3>
+            <p class="sub">Dedalus · <span lang="es">software para el sector sanitario</span><span lang="en">healthcare software</span></p>
+            <ul>
+              <li><span lang="es">Integración de estándares sanitarios <b>HL7 y FHIR</b>: parseo de mensajes HL7 y mapeo a recursos FHIR con HAPI FHIR en Spring Boot.</span><span lang="en">Healthcare standards integration: parsing <b>HL7</b> messages and mapping them to <b>FHIR</b> resources with HAPI FHIR in Spring Boot.</span></li>
+              <li><span lang="es">APIs REST con respuesta en XML y autenticación básica, en <b>Spring Boot</b> y en <b>Quarkus</b>.</span><span lang="en">REST APIs with XML responses and basic authentication, in both <b>Spring Boot</b> and <b>Quarkus</b>.</span></li>
+              <li><span lang="es">Migración de un servicio proxy de Open Liberty a Quarkus.</span><span lang="en">Migration of a proxy service from Open Liberty to Quarkus.</span></li>
+              <li><span lang="es">Dos aplicaciones CRUD <b>full stack</b> con Quarkus, Angular y MySQL, con filtrado, ordenación, paginación y vista de detalle.</span><span lang="en">Two <b>full-stack</b> CRUD applications with Quarkus, Angular and MySQL, including filtering, sorting, pagination and detail views.</span></li>
+              <li><span lang="es">Pruebas unitarias con JUnit y Mockito; frontend (Angular + Nginx) y backend (Quarkus) en <b>Docker</b>.</span><span lang="en">Unit tests with JUnit and Mockito; frontend (Angular + Nginx) and backend (Quarkus) in <b>Docker</b>.</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Education -->
-  <section id="formacion" style="--c:var(--amber)">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">02</span><h2><span lang="es">Formación</span><span lang="en">Education</span></h2></div>
-      <div class="two">
-        <article class="card edu" style="--c:var(--teal)">
-          <span class="ico"><svg><use href="#i-cap"/></svg></span>
+  <section id="formacion">
+    <div class="wrap sec">
+      <div class="sec-title"><span class="n">02</span><h2><span lang="es">Formación</span><span lang="en">Education</span></h2></div>
+      <div class="rows">
+        <div class="row">
+          <div class="left">2025 – <span lang="es">hoy</span><span lang="en">now</span></div>
           <div>
             <h3><span lang="es">Máster en Ingeniería Informática</span><span lang="en">MSc in Computer Engineering</span></h3>
-            <p class="where"><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga</span><span lang="en">Data Engineering specialization · University of Málaga</span></p>
-            <div class="meta"><span class="badge live"><span lang="es">En curso</span><span lang="en">In progress</span></span><span class="badge">2025 – <span lang="es">actualidad</span><span lang="en">present</span></span></div>
+            <p class="sub"><span lang="es">Especialidad en Ingeniería de Datos · Universidad de Málaga</span><span lang="en">Data Engineering specialization · University of Málaga</span></p>
           </div>
-        </article>
-        <article class="card edu" style="--c:var(--violet)">
-          <span class="ico"><svg><use href="#i-cap"/></svg></span>
+        </div>
+        <div class="row">
+          <div class="left">2021 – 2025</div>
           <div>
             <h3><span lang="es">Grado en Ingeniería Informática</span><span lang="en">BSc in Computer Engineering</span></h3>
-            <p class="where"><span lang="es">Universidad de Málaga</span><span lang="en">University of Málaga</span></p>
-            <div class="meta"><span class="badge">2021 – 2025</span></div>
+            <p class="sub"><span lang="es">Universidad de Málaga</span><span lang="en">University of Málaga</span></p>
           </div>
-        </article>
-        <article class="card edu" style="--c:var(--coral)">
-          <span class="ico"><svg><use href="#i-shield"/></svg></span>
+        </div>
+        <div class="row">
+          <div class="left"><span lang="es">Diploma</span><span lang="en">Diploma</span></div>
           <div>
             <h3><span lang="es">Certificado de Extensión Universitaria en Ciberseguridad</span><span lang="en">University Extension Certificate in Cybersecurity</span></h3>
-            <div class="meta"><span class="badge"><span lang="es">Diploma</span><span lang="en">Diploma</span></span></div>
           </div>
-        </article>
-        <article class="card edu" style="--c:var(--sky)">
-          <span class="ico"><svg><use href="#i-chat"/></svg></span>
+        </div>
+        <div class="row">
+          <div class="left"><span lang="es">Idiomas</span><span lang="en">Languages</span></div>
           <div>
-            <h3><span lang="es">Idiomas</span><span lang="en">Languages</span></h3>
-            <p class="where"><span lang="es">Buena comprensión lectora de documentación técnica en inglés</span><span lang="en">Comfortable reading technical documentation in English</span></p>
-            <div class="meta"><span class="badge"><span lang="es">Español · nativo</span><span lang="en">Spanish · native</span></span><span class="badge"><span lang="es">Inglés · B1</span><span lang="en">English · B1</span></span></div>
+            <h3><span lang="es">Español nativo · Inglés B1</span><span lang="en">Spanish (native) · English B1</span></h3>
+            <p class="sub"><span lang="es">Buena comprensión lectora de documentación técnica en inglés.</span><span lang="en">Comfortable reading technical documentation in English.</span></p>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="competencias" style="--c:var(--teal)">
-    <div class="wrap">
-      <div class="sec-head"><span class="num">03</span><h2><span lang="es">Competencias técnicas</span><span lang="en">Technical skills</span></h2></div>
-      <div class="skills">
-        <div class="card skill" style="--c:var(--blue)"><h3><span lang="es">Lenguajes</span><span lang="en">Languages</span></h3><ul class="chips"><li>Java</li><li>Python</li><li>SQL</li><li>R</li><li class="learning">TypeScript</li><li class="learning">Kotlin</li></ul></div>
-        <div class="card skill" style="--c:var(--teal)"><h3><span lang="es">Datos</span><span lang="en">Data</span></h3><ul class="chips"><li>Pandas</li><li>Scikit-learn</li><li>Plotly</li><li>ggplot2</li><li>dplyr</li><li>Jupyter</li><li class="learning">Grafana</li></ul></div>
-        <div class="card skill" style="--c:var(--violet)"><h3>Frameworks</h3><ul class="chips"><li>Spring Boot</li><li>Quarkus</li><li>Angular</li><li class="learning">Next.js</li></ul></div>
-        <div class="card skill" style="--c:var(--green)"><h3><span lang="es">Bases de datos</span><span lang="en">Databases</span></h3><ul class="chips"><li>MySQL</li><li>MongoDB</li><li class="learning">Supabase</li></ul></div>
-        <div class="card skill" style="--c:var(--amber)"><h3><span lang="es">Herramientas</span><span lang="en">Tools</span></h3><ul class="chips"><li>Docker</li><li>Nginx</li><li>Git</li><li>JUnit</li><li>Mockito</li></ul></div>
-        <div class="card skill" style="--c:var(--coral)"><h3><span lang="es">Ciberseguridad y GRC</span><span lang="en">Cybersecurity &amp; GRC</span></h3><ul class="chips"><li class="learning">ISO 27001</li><li class="learning">ENS</li><li class="learning"><span lang="es">RGPD</span><span lang="en">GDPR</span></li></ul></div>
-        <div class="card skill" style="--c:var(--pink)"><h3><span lang="es">Estándares sanitarios</span><span lang="en">Healthcare standards</span></h3><ul class="chips"><li>HL7</li><li>FHIR</li></ul></div>
-        <div class="card skill" style="--c:var(--sky)"><h3>Cloud</h3><ul class="chips"><li class="learning">GCP</li><li class="learning">AWS</li><li class="learning">Azure</li><li class="learning">Vercel</li></ul></div>
+  <section id="competencias">
+    <div class="wrap sec">
+      <div class="sec-title"><span class="n">03</span><h2><span lang="es">Competencias</span><span lang="en">Skills</span></h2></div>
+      <div class="rows skills">
+        <div class="row" style="--k:var(--teal)"><div class="left"><span lang="es">Lenguajes</span><span lang="en">Languages</span></div><p>Java, Python, SQL, R<span class="learn">TypeScript, Kotlin</span></p></div>
+        <div class="row" style="--k:var(--teal)"><div class="left"><span lang="es">Datos</span><span lang="en">Data</span></div><p>Pandas, Scikit-learn, Plotly, ggplot2, dplyr, Jupyter<span class="learn">Grafana</span></p></div>
+        <div class="row" style="--k:var(--violet)"><div class="left">Frameworks</div><p>Spring Boot, Quarkus, Angular<span class="learn">Next.js</span></p></div>
+        <div class="row" style="--k:var(--violet)"><div class="left"><span lang="es">Bases de datos</span><span lang="en">Databases</span></div><p>MySQL, MongoDB<span class="learn">Supabase</span></p></div>
+        <div class="row" style="--k:var(--violet)"><div class="left"><span lang="es">Herramientas</span><span lang="en">Tools</span></div><p>Docker, Nginx, Git, JUnit, Mockito</p></div>
+        <div class="row" style="--k:var(--coral)"><div class="left"><span lang="es">Ciber y GRC</span><span lang="en">Cyber &amp; GRC</span></div><p><span class="learn only"><span lang="es">ISO 27001, ENS, RGPD</span><span lang="en">ISO 27001, ENS, GDPR</span></span></p></div>
+        <div class="row" style="--k:var(--coral)"><div class="left"><span lang="es">Sanidad</span><span lang="en">Healthcare</span></div><p>HL7, FHIR</p></div>
+        <div class="row" style="--k:var(--faint)"><div class="left">Cloud</div><p><span class="learn only"><span lang="es">nociones de</span><span lang="en">basics of</span> GCP, AWS, Azure; Vercel</span></p></div>
+        <p class="legend"><span lang="es">En cursiva: lo que estoy aprendiendo.</span><span lang="en">In italics: what I'm currently learning.</span></p>
       </div>
-      <p class="legend"><span><i></i><span lang="es">Uso con soltura</span><span lang="en">Confident</span></span><span><i class="d"></i><span lang="es">Aprendiendo / nociones</span><span lang="en">Learning / basics</span></span></p>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="proyectos" style="--c:var(--coral)">
+  <section id="proyectos">
     <div class="wrap">
-      <div class="sec-head"><span class="num">04</span><h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2></div>
+      <div class="sec-title"><span class="n">04</span><h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2></div>
 
-      <article class="project p-lol featured">
+      <article class="project p-lol">
         <div class="shot"><img src="img/jungle-clear-tracker.jpg" alt="Mapa de calor de los primeros minutos sobre el mapa de League of Legends" loading="lazy"></div>
         <div class="body">
           <span class="tag"><span lang="es">App de escritorio · Código abierto</span><span lang="en">Desktop app · Open source</span></span>
           <h3>Jungle Clear Tracker</h3>
-          <div class="divider"></div>
+          <div class="rule"></div>
           <p>
             <span lang="es">Mide automáticamente el primer clear de jungla en League of Legends: cuándo muere cada campamento, el orden, los scuttles y un mapa de los primeros 7 minutos, solo con las APIs locales del juego.</span>
             <span lang="en">Automatically measures the first jungle clear in League of Legends: when each camp dies, the order, scuttles and a map of the first 7 minutes, using only the game's local APIs.</span>
           </p>
-          <ul class="points">
+          <ul class="pts">
             <li><span lang="es">Captura en directo del oro: cada monstruo es un salto, así que los tiempos tienen ~0,5 s de precisión.</span><span lang="en">Live gold capture: every monster kill is a jump, so timings are accurate to ~0.5 s.</span></li>
             <li><span lang="es">Tras la partida automatiza el replay con una cámara cenital y proyección geométrica para reconstruir la posición de los 10 campeones (error mediano ~45 unidades frente al timeline de Riot).</span><span lang="en">After the game it drives the replay with a top-down camera and geometric projection to rebuild all 10 champions' positions (median error ~45 units vs Riot's timeline).</span></li>
             <li><span lang="es">Mapas de calor, rutas y winrate por ruta; segundo plano, arranque con Windows y exe con asistente.</span><span lang="en">Heatmaps, routes and win rate by route; runs in the background, starts with Windows, single exe with a setup wizard.</span></li>
           </ul>
-          <ul class="chips"><li>Python</li><li>Tkinter</li><li>matplotlib</li><li>REST APIs</li><li>PyInstaller</li></ul>
+          <p class="stack"><b>Python</b> · Tkinter · matplotlib · REST APIs · PyInstaller</p>
           <div class="links">
-            <a class="main" href="https://github.com/xAllow/jungle-clear-tracker/releases/latest" target="_blank" rel="noopener"><svg><use href="#i-dl"/></svg><span lang="es">Descargar</span><span lang="en">Download</span></a>
-            <a href="https://github.com/xAllow/jungle-clear-tracker" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg><span lang="es">Código</span><span lang="en">Code</span></a>
+            <a class="main" href="https://github.com/xAllow/jungle-clear-tracker/releases/latest" target="_blank" rel="noopener"><span lang="es">Descargar</span><span lang="en">Download</span></a>
+            <a href="https://github.com/xAllow/jungle-clear-tracker" target="_blank" rel="noopener"><span lang="es">Ver código</span><span lang="en">View code</span></a>
           </div>
         </div>
       </article>
@@ -547,18 +387,18 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
           <div class="shot"><img src="img/datos-lol.jpg" alt="Panel de vida: pestaña de League of Legends con KPIs y gráficos" loading="lazy"></div>
           <div class="body">
             <span class="tag"><span lang="es">Ingeniería de datos · Dashboard web</span><span lang="en">Data engineering · Web dashboard</span></span>
-            <h3><span lang="es">Panel de vida</span><span lang="en">Life dashboard</span><span class="live-pill">LIVE</span></h3>
+            <h3><span lang="es">Panel de vida</span><span lang="en">Life dashboard</span><span class="live">LIVE</span></h3>
             <div class="kpis">
               <div><b>760+</b><span lang="es">partidas</span><span lang="en">games</span></div>
-              <div style="--k:#3b82f6"><b>600+</b><span lang="es">días de pasos</span><span lang="en">days of steps</span></div>
-              <div style="--k:#eab308"><b>38</b><span lang="es">paneles</span><span lang="en">panels</span></div>
+              <div style="--k:#58a6ff"><b>600+</b><span lang="es">días de pasos</span><span lang="en">days of steps</span></div>
+              <div style="--k:#d29922"><b>38</b><span lang="es">paneles</span><span lang="en">panels</span></div>
             </div>
-            <ul class="points">
+            <ul class="pts">
               <li><span lang="es">ETL en Python: API de Riot y exportaciones de Google Drive a MongoDB, con sincronización incremental.</span><span lang="en">Python ETL: Riot API and Google Drive exports into MongoDB, synced incrementally.</span></li>
               <li><span lang="es">Paneles reordenables, filtros por rol, campeón, cola, lado y hora, y mapa de jungla interactivo.</span><span lang="en">Rearrangeable panels, filters by role, champion, queue, side and time, and an interactive jungle map.</span></li>
             </ul>
-            <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>Recharts</li><li>MongoDB</li><li>Python</li></ul>
-            <div class="links"><a class="main" href="https://datos-lol.vercel.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a></div>
+            <p class="stack"><b>Next.js</b> · TypeScript · Tailwind · Recharts · <b>MongoDB</b> · Python</p>
+            <div class="links"><a class="main" href="https://datos-lol.vercel.app" target="_blank" rel="noopener"><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a></div>
           </div>
         </article>
 
@@ -571,12 +411,12 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
               <span lang="es">Convierte una carrera en un sticker con fondo transparente para pegarlo sobre tus fotos en stories de Instagram. El editor es el producto.</span>
               <span lang="en">Turns a run into a transparent sticker to place over your photos in Instagram stories. The editor is the product.</span>
             </p>
-            <ul class="points">
+            <ul class="pts">
               <li><span lang="es">Importa desde Strava (OAuth) o desde ficheros GPX/TCX de cualquier app de running.</span><span lang="en">Imports from Strava (OAuth) or from GPX/TCX files from any running app.</span></li>
-              <li><span lang="es">Estilos, marcos, degradados por ritmo, pulso o pendiente, presets, y exportación a PNG o a vídeo animado de 15 s.</span><span lang="en">Styles, frames, gradients by pace, heart rate or slope, presets, and export to PNG or a 15-second animated video.</span></li>
+              <li><span lang="es">Estilos, marcos, colores por ritmo, pulso o pendiente, presets, y exportación a PNG o a vídeo animado de 15 s.</span><span lang="en">Styles, frames, colours by pace, heart rate or slope, presets, and export to PNG or a 15-second animated video.</span></li>
             </ul>
-            <ul class="chips"><li>Kotlin</li><li>Android</li><li>Strava API</li></ul>
-            <div class="links"><span class="private"><svg><use href="#i-lock"/></svg><span lang="es">Código privado</span><span lang="en">Private code</span></span></div>
+            <p class="stack"><b>Kotlin</b> · Android · Strava API</p>
+            <div class="links"><span class="private">🔒 <span lang="es">código privado</span><span lang="en">private code</span></span></div>
           </div>
         </article>
 
@@ -585,32 +425,30 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
           <div class="body">
             <span class="tag"><span lang="es">Web · En producción</span><span lang="en">Website · In production</span></span>
             <h3>Montilla <em>Pasión Go</em></h3>
-            <div class="ornament">✦</div>
             <p>
               <span lang="es">La web de la Semana Santa de Montilla: hermandades, itinerarios y recorridos para seguirla en la calle.</span>
               <span lang="en">The website for Holy Week in Montilla: brotherhoods, schedules and routes to follow the processions in the street.</span>
             </p>
-            <ul class="points">
+            <ul class="pts">
               <li><span lang="es">Recorridos sobre mapa y estado de cada hermandad en directo (sin salir, en la calle, recogida).</span><span lang="en">Routes on a map and each brotherhood's live status (not out yet, in the street, back in).</span></li>
               <li><span lang="es">Panel de administración, base de datos en Supabase y SEO (sitemap, metadatos).</span><span lang="en">Admin panel, Supabase database and SEO (sitemap, metadata).</span></li>
             </ul>
-            <ul class="chips"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>Leaflet</li><li>Tailwind</li></ul>
-            <div class="links"><a class="main" href="https://montillapasiongo.app" target="_blank" rel="noopener"><svg><use href="#i-ext"/></svg><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a></div>
+            <p class="stack"><b>Next.js</b> · TypeScript · <b>Supabase</b> · Leaflet · Tailwind</p>
+            <div class="links"><a class="main" href="https://montillapasiongo.app" target="_blank" rel="noopener"><span lang="es">Ver en vivo</span><span lang="en">Live site</span></a></div>
           </div>
         </article>
 
         <article class="project p-tfg">
           <div class="shot">
             <div class="tfg-art" aria-hidden="true">
-              <div class="panel-row">
+              <div class="row3">
                 <div class="mini"><span>source</span><b style="color:#73bf69">logs</b></div>
                 <div class="mini"><span>geo</span><b style="color:#fbca0a">IP</b></div>
                 <div class="mini"><span>panel</span><b style="color:#f2495c">kiosk</b></div>
               </div>
               <div class="chart">
                 <svg viewBox="0 0 300 90" preserveAspectRatio="none">
-                  <defs><linearGradient id="tfg-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f46800" stop-opacity=".45"/><stop offset="1" stop-color="#f46800" stop-opacity="0"/></linearGradient></defs>
-                  <path d="M0 70 L25 62 L50 66 L75 48 L100 54 L125 36 L150 42 L175 26 L200 34 L225 20 L250 28 L275 14 L300 18 L300 90 L0 90 Z" fill="url(#tfg-g)"/>
+                  <path d="M0 70 L25 62 L50 66 L75 48 L100 54 L125 36 L150 42 L175 26 L200 34 L225 20 L250 28 L275 14 L300 18 L300 90 L0 90 Z" fill="#f46800" fill-opacity=".15"/>
                   <path d="M0 70 L25 62 L50 66 L75 48 L100 54 L125 36 L150 42 L175 26 L200 34 L225 20 L250 28 L275 14 L300 18" fill="none" stroke="#f46800" stroke-width="2"/>
                   <path d="M0 80 L25 76 L50 78 L75 70 L100 72 L125 64 L150 68 L175 58 L200 62 L225 54 L250 58 L275 50 L300 52" fill="none" stroke="#5794f2" stroke-width="2"/>
                 </svg>
@@ -624,12 +462,12 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
               <span lang="es">Estudio del comportamiento de los usuarios de una aplicación web de diseño de interiores a partir de sus logs.</span>
               <span lang="en">A study of how users behave in an interior design web app, based on its logs.</span>
             </p>
-            <ul class="points">
+            <ul class="pts">
               <li><span lang="es">Procesamiento y análisis en notebooks, con geolocalización de IPs por país y comunidad autónoma.</span><span lang="en">Processing and analysis in notebooks, with IP geolocation by country and region.</span></li>
               <li><span lang="es">Dashboards en Grafana servidos en modo kiosko (Node.js + Docker) y documentación con Quarto.</span><span lang="en">Grafana dashboards served in kiosk mode (Node.js + Docker) and documentation built with Quarto.</span></li>
             </ul>
-            <ul class="chips"><li>Python</li><li>Jupyter</li><li>Grafana</li><li>Docker</li><li>Quarto</li></ul>
-            <div class="links"><span class="private"><svg><use href="#i-lock"/></svg><span lang="es">Código privado</span><span lang="en">Private code</span></span></div>
+            <p class="stack"><b>Python</b> · Jupyter · <b>Grafana</b> · Docker · Quarto</p>
+            <div class="links"><span class="private">🔒 <span lang="es">código privado</span><span lang="en">private code</span></span></div>
           </div>
         </article>
       </div>
@@ -637,22 +475,18 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; text-align:
   </section>
 
   <!-- Contact -->
-  <section id="contacto">
-    <div class="wrap">
-      <div class="card contact">
-        <h2><span lang="es">¿Hablamos?</span><span lang="en">Let's talk</span></h2>
-        <p><span lang="es">¿Tienes una propuesta o quieres saber más de algún proyecto? Escríbeme.</span><span lang="en">Have an offer or want to know more about a project? Drop me a line.</span></p>
-        <div class="cta">
-          <a class="btn primary" href="mailto:alvaro31032003@gmail.com"><svg><use href="#i-mail"/></svg>alvaro31032003@gmail.com</a>
-          <a class="btn" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener"><svg><use href="#i-in"/></svg>LinkedIn</a>
-          <a class="btn" href="https://github.com/xAllow" target="_blank" rel="noopener"><svg><use href="#i-gh"/></svg>GitHub</a>
-        </div>
-      </div>
+  <div class="wrap contact" id="contacto">
+    <h2><span lang="es">¿<em>Hablamos</em>?</span><span lang="en">Let's <em>talk</em>.</span></h2>
+    <p><span lang="es">¿Tienes una propuesta o quieres saber más de algún proyecto? Escríbeme.</span><span lang="en">Have an offer or want to know more about a project? Drop me a line.</span></p>
+    <a class="mail" href="mailto:alvaro31032003@gmail.com">alvaro31032003@gmail.com</a>
+    <div class="cta">
+      <a class="tlink" href="https://www.linkedin.com/in/alvaro-luque-torres-33b614182" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="tlink" href="https://github.com/xAllow" target="_blank" rel="noopener">GitHub</a>
     </div>
-  </section>
+  </div>
 </main>
 
-<footer>© 2026 Álvaro Luque Torres</footer>
+<footer class="wrap">© 2026 Álvaro Luque Torres</footer>
 
 <script>
 (function () {
